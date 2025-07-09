@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Aure – Smarter Business Banking",
+  description: "The best banking platform for modern businesses",
+};
 import Head from "next/head";
 
 export default function Home() {
