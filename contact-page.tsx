@@ -1,18 +1,4 @@
-import Head from "next/head";
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Aure – Smarter Business Banking</title> {/* ✅ Page tab title */}
-        <meta name="description" content="Modern banking for modern businesses." />
-      </Head>
-      <main>
-        {/* page content */}
-      </main>
-    </>
-  );
-}
 "use client"
 
 import type React from "react"
