@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Aure – Modern Money Management",
+}
+
 "use client"
 
 import { useState } from "react"
