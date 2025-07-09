@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Aure Modern Money Management',
-  description: 'Join Aure Today',
+  title: 'v0 app',
+  description: 'Built with v0',
   generator: 'v0.dev',
 }
 
