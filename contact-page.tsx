@@ -16,21 +16,21 @@ interface ContactPageProps {
   onFooterLinkClick: (page: string) => void
 }
 
-export default function ContactPage({
-  onLogoClick,
-  onNavigateHome,
-  onFormSubmit,
-  onAboutClick,
-  onFooterLinkClick,
-}: ContactPageProps) {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    companyName: "",
-    email: "",
-    phone: "",
-    description: "",
-  })
+<form
+  action="https://formspree.io/f/xqabvrow"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
