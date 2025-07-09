@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import Head from "next/head"
+
 import LandingPage from "../landing-page"
 import ContactPage from "../contact-page"
 import ThankYouPage from "../thank-you-page"
@@ -50,105 +52,103 @@ export default function Page() {
     window.scrollTo(0, 0)
   }
 
-  if (currentPage === "thank-you") {
-    return (
-      <ThankYouPage
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "contact") {
-    return (
-      <ContactPage
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onFormSubmit={handleFormSubmit}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "about") {
-    return (
-      <AboutPage
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "general-disclosures") {
-    return (
-      <GeneralDisclosures
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "terms-of-use") {
-    return (
-      <TermsOfUse
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "privacy-policy") {
-    return (
-      <PrivacyPolicy
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "referral-agreement") {
-    return (
-      <ReferralAgreement
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
-  }
-
-  if (currentPage === "cookies") {
-    return (
-      <Cookies
-        onLogoClick={handleLogoClick}
-        onNavigateHome={handleNavigateHome}
-        onContactClick={handleContactClick}
-        onAboutClick={handleAboutClick}
-        onFooterLinkClick={handleFooterLinkClick}
-      />
-    )
+  const renderPage = () => {
+    switch (currentPage) {
+      case "thank-you":
+        return (
+          <ThankYouPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "contact":
+        return (
+          <ContactPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onFormSubmit={handleFormSubmit}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "about":
+        return (
+          <AboutPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "general-disclosures":
+        return (
+          <GeneralDisclosures
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "terms-of-use":
+        return (
+          <TermsOfUse
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "privacy-policy":
+        return (
+          <PrivacyPolicy
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "referral-agreement":
+        return (
+          <ReferralAgreement
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "cookies":
+        return (
+          <Cookies
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      default:
+        return (
+          <LandingPage
+            onContactClick={handleContactClick}
+            onLogoClick={handleLogoClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+    }
   }
 
   return (
-    <LandingPage
-      onContactClick={handleContactClick}
-      onLogoClick={handleLogoClick}
-      onAboutClick={handleAboutClick}
-      onFooterLinkClick={handleFooterLinkClick}
-    />
+    <>
+      <Head>
+        <title>Aure – Modern Money Management</title>
+      </Head>
+      {renderPage()}
+    </>
   )
 }
