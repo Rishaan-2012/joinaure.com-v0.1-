@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Footer from "./components/footer"
 
 interface ContactPageProps {
@@ -19,44 +19,55 @@ export default function ContactPage({
   onAboutClick,
   onFooterLinkClick,
 }: ContactPageProps) {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    description: "",
+  })
+
   const [isLoaded, setIsLoaded] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 100)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
-    const form = e.currentTarget
-    const formData = new FormData(form)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
 
     try {
-      const response = await fetch("https://formspree.io/f/xqabvrow", {
+      const formDataObj = new FormData()
+      Object.entries(formData).forEach(([key, value]) => formDataObj.append(key, value))
+
+      const res = await fetch("https://formspree.io/f/xqabvrow", {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        body: formDataObj,
+        headers: { Accept: "application/json" },
       })
 
-      if (response.ok) {
-        setSuccess(true)
-        form.reset()
+      if (res.ok) {
         onFormSubmit()
-      } else {
-        console.error("Submission failed")
       }
     } catch (err) {
-      console.error("Unexpected error", err)
-    } finally {
-      setIsSubmitting(false)
+      console.error("Error submitting form", err)
     }
   }
 
@@ -81,26 +92,25 @@ export default function ContactPage({
       `}</style>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 h-24 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <div className="flex items-center">
-            <button onClick={onLogoClick} className="focus:outline-none">
-              <Image
-                src="/images/aure-logo-new.png"
-                alt="Aure Logo"
-                width={140}
-                height={52}
-                className="h-14 w-auto hover:opacity-90 transition-opacity"
-                quality={100}
-                priority
-                style={{
-                  imageRendering: "crisp-edges",
-                  filter: "contrast(1.1) saturate(1.2)",
-                }}
-                unoptimized
-              />
-            </button>
-          </div>
+          <button onClick={onLogoClick}>
+            <Image
+              src="/images/aure-logo-new.png"
+              alt="Aure Logo"
+              width={140}
+              height={52}
+              className="h-14 w-auto hover:opacity-90 transition-opacity"
+              quality={100}
+              priority
+              style={{ imageRendering: "crisp-edges", filter: "contrast(1.1) saturate(1.2)" }}
+              unoptimized
+            />
+          </button>
 
           <nav className="hidden md:flex items-center space-x-8">
             <button onClick={onNavigateHome} className="text-gray-600 hover:text-gray-900 font-medium">
@@ -118,16 +128,14 @@ export default function ContactPage({
       <div className="pt-32 pb-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left Side */}
             <div className={`space-y-4 page-animate ${isLoaded ? "loaded" : ""}`}>
               <h1 className="text-4xl font-normal text-gray-900 leading-tight">Get in touch</h1>
               <p className="text-gray-600 leading-relaxed max-w-lg">
-                Running a business is hard enough. Don't lose momentum chasing capital when you could be building what
+                Running a business is hard enough. Don’t lose momentum chasing capital when you could be building what
                 matters. Aure gives you the modern financing support you need.
               </p>
             </div>
 
-            {/* Right Side - Form */}
             <div className={`bg-white rounded-2xl shadow-lg p-6 page-animate ${isLoaded ? "loaded" : ""}`}>
               <p className="text-gray-600 mb-6 text-sm">
                 Please fill out the form below and we'll get back to you as soon as possible.
@@ -139,70 +147,75 @@ export default function ContactPage({
                     type="text"
                     name="firstName"
                     placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
+                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   />
                   <input
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
+                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   />
                 </div>
+
                 <input
                   type="text"
                   name="companyName"
                   placeholder="Company Name"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
+                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
+
                 <input
                   type="email"
                   name="email"
                   placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
+                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
+
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
+                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
+
                 <textarea
                   name="description"
                   placeholder="Description"
                   rows={3}
+                  value={formData.description}
+                  onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm resize-none"
+                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 resize-none"
                 />
+
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="button-hover bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-lg font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="button-hover bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-lg font-medium text-sm"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit"}
+                  Submit
                 </button>
-
-                {success && (
-                  <p className="text-green-600 text-sm pt-2">
-                    ✅ Your message was sent successfully. We'll get back to you shortly.
-                  </p>
-                )}
               </form>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
       <Footer onFooterLinkClick={onFooterLinkClick} />
     </div>
   )
 }
-
-
-
-
