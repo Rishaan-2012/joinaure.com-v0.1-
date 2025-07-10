@@ -1,7 +1,7 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import Header from "./components/header" // adjust the path if needed
-import Providers from "./providers" // your SessionProvider wrapper
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "@/components/header"; // ✅ Adjusted to absolute path
+import Providers from "@/providers";       // ✅ Adjusted to absolute path
 
 export const metadata: Metadata = {
   title: "Aure – Modern Money Management",
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -26,7 +26,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#ffffff" />
-        <title>Aure – Modern Money Management</title>
       </head>
       <body>
         <Providers>
@@ -35,6 +34,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  )
+  );
 }
-
