@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Header from "@/components/header"; // ✅ Adjusted to absolute path
-import Providers from "@/providers";       // ✅ Adjusted to absolute path
+import Header from "./components/header";  // ✅ RELATIVE path
+import Providers from "./providers";       // ✅ RELATIVE path
 
 export const metadata: Metadata = {
   title: "Aure – Modern Money Management",
@@ -33,6 +33,10 @@ export default function RootLayout({
           <main className="pt-20">{children}</main>
         </Providers>
       </body>
+    </html>
+  );
+}
+
     </html>
   );
 }
