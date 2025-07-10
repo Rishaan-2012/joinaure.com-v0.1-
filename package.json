@@ -7,7 +7,6 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
-    "next-auth": "^4.24.5"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
