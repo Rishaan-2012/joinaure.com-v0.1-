@@ -1,12 +1,12 @@
 {
-  "name": "my-v0-project",
+  "name": "aure-financial",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -41,16 +41,16 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "latest",
-    "date-fns": "4.1.0",
+    "date-fns": "^4.1.0",
     "embla-carousel-react": "latest",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
     "next-auth": "^4.24.5",
     "next-themes": "latest",
-    "react": "^19",
+    "react": "^19.0.0",
     "react-day-picker": "latest",
-    "react-dom": "^19",
+    "react-dom": "^19.0.0",
     "react-hook-form": "latest",
     "react-resizable-panels": "latest",
     "recharts": "latest",
@@ -61,12 +61,11 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8.5",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "@types/node": "^20.6.3",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2"
   }
 }
-
