@@ -1,11 +1,9 @@
-// app/layout.tsx
 import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Aure – Modern Money Management',
   description: 'Smarter financial solutions for modern businesses.',
-  generator: 'v0.dev',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-32x32.png',
@@ -21,12 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* These tags ensure the favicon appears correctly */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta charSet="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#ffffff" />
+        <title>Aure – Modern Money Management</title>
       </head>
       <body>{children}</body>
     </html>
