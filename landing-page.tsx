@@ -2,7 +2,14 @@
 
 import Image from "next/image"
 import { ChevronRight } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import type React from "react"
+import { useState, useEffect, useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Footer from "./components/footer"
 
 interface LandingPageProps {
@@ -21,6 +28,18 @@ export default function LandingPage({
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+  const [waitlistData, setWaitlistData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    companyName: "",
+    jobTitle: "",
+    companySize: "",
+    interests: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState("")
 
   useEffect(() => {
     // Reset all animations when component mounts
@@ -75,6 +94,58 @@ export default function LandingPage({
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const formData = new FormData()
+      formData.append("firstName", waitlistData.firstName)
+      formData.append("lastName", waitlistData.lastName)
+      formData.append("email", waitlistData.email)
+      formData.append("companyName", waitlistData.companyName)
+      formData.append("jobTitle", waitlistData.jobTitle)
+      formData.append("companySize", waitlistData.companySize)
+      formData.append("interests", waitlistData.interests)
+
+      const response = await fetch("https://formspree.io/f/xdkdndnd", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setSubmitMessage("Thank you for joining our waitlist! We'll be in touch soon.")
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsWaitlistOpen(false)
+          setSubmitMessage("")
+          setWaitlistData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            companyName: "",
+            jobTitle: "",
+            companySize: "",
+            interests: "",
+          })
+        }, 3000)
+      } else {
+        setSubmitMessage("There was an error submitting your information. Please try again.")
+      }
+    } catch (error) {
+      setSubmitMessage("There was an error submitting your information. Please try again.")
+    }
+
+    setIsSubmitting(false)
+  }
+
+  const handleInputChange = (field: string, value: string) => {
+    setWaitlistData((prev) => ({ ...prev, [field]: value }))
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -158,7 +229,7 @@ export default function LandingPage({
             </div>
           </nav>
 
-          {/* Right Side - Login & Get Started Buttons - Positioned absolutely on the right */}
+          {/* Right Side - Login & Join Waitlist Buttons - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
             <button
               onClick={() => window.open("https://aurefinancial.com", "_blank")}
@@ -166,12 +237,125 @@ export default function LandingPage({
             >
               Log in
             </button>
-            <button
-              onClick={() => window.open("https://aurefinancial.com", "_blank")}
-              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
-            >
-              Get started
-            </button>
+            <Dialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen}>
+              <DialogTrigger asChild>
+                <button className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md">
+                  Join Waitlist
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[500px]">
+                <DialogHeader>
+                  <DialogTitle>Join Our Waitlist</DialogTitle>
+                </DialogHeader>
+                {submitMessage ? (
+                  <div className="text-center py-8">
+                    <div
+                      className={`font-medium ${submitMessage.includes("error") ? "text-red-600" : "text-green-600"}`}
+                    >
+                      {submitMessage}
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleWaitlistSubmit} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="firstName">First Name *</Label>
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          value={waitlistData.firstName}
+                          onChange={(e) => handleInputChange("firstName", e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName">Last Name *</Label>
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          value={waitlistData.lastName}
+                          onChange={(e) => handleInputChange("lastName", e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={waitlistData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="companyName">Company Name *</Label>
+                      <Input
+                        id="companyName"
+                        name="companyName"
+                        value={waitlistData.companyName}
+                        onChange={(e) => handleInputChange("companyName", e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="jobTitle">Job Title</Label>
+                      <Input
+                        id="jobTitle"
+                        name="jobTitle"
+                        value={waitlistData.jobTitle}
+                        onChange={(e) => handleInputChange("jobTitle", e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="companySize">Company Size</Label>
+                      <Select
+                        name="companySize"
+                        value={waitlistData.companySize}
+                        onValueChange={(value) => handleInputChange("companySize", value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select company size" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1-10">1-10 employees</SelectItem>
+                          <SelectItem value="11-50">11-50 employees</SelectItem>
+                          <SelectItem value="51-200">51-200 employees</SelectItem>
+                          <SelectItem value="201-1000">201-1000 employees</SelectItem>
+                          <SelectItem value="1000+">1000+ employees</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="interests">What interests you most about Aure?</Label>
+                      <Textarea
+                        id="interests"
+                        name="interests"
+                        value={waitlistData.interests}
+                        onChange={(e) => handleInputChange("interests", e.target.value)}
+                        placeholder="Tell us what you're looking for..."
+                        rows={3}
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-[#d5b36e] hover:bg-[#c4a05d] text-white"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Joining..." : "Join Waitlist"}
+                    </Button>
+                  </form>
+                )}
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
