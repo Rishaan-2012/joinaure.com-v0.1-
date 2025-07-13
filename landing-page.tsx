@@ -19,7 +19,6 @@ export default function LandingPage({
   onFooterLinkClick,
 }: LandingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
-  const heroImageRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -51,22 +50,10 @@ export default function LandingPage({
       },
     )
 
-    // Handle scroll for header background and hero image
+    // Handle scroll for header background only
     const handleScroll = () => {
       const scrollY = window.scrollY
-      setIsScrolled(scrollY > 10) // Changed from 50 to 10 for quicker fade
-
-      if (heroImageRef.current) {
-        const rect = heroImageRef.current.getBoundingClientRect()
-        const windowHeight = window.innerHeight
-
-        // Calculate zoom based on scroll position - increased scale factor for bigger growth
-        const scrolled = Math.max(0, windowHeight - rect.top)
-        const rate = scrolled * 0.0005 // Increased from 0.0002 to 0.0005 for bigger growth
-        const scale = 1 + rate
-
-        heroImageRef.current.style.transform = `scale(${Math.min(scale, 1.25)})` // Increased max scale from 1.1 to 1.25
-      }
+      setIsScrolled(scrollY > 10)
     }
 
     // Observe all elements with scroll-animate class
@@ -118,10 +105,6 @@ export default function LandingPage({
         }
         .logo-hover:hover {
           transform: scale(1.15);
-        }
-        .hero-image {
-          perspective: 1000px;
-          transition: all 0.1s ease-out;
         }
         .header-transition {
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -232,9 +215,9 @@ export default function LandingPage({
           </div>
         </div>
 
-        {/* Hero Image with Progressive 3D Animation */}
+        {/* Hero Image - No Animation */}
         <div className="max-w-6xl mx-auto px-6 mt-16">
-          <div ref={heroImageRef} className="relative transition-transform duration-300 ease-out">
+          <div className="relative">
             <Image
               src="/images/hero-comparison.png"
               alt="Feature Comparison Dashboard showing Aure's competitive advantages"
