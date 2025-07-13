@@ -21,6 +21,7 @@ export default function LandingPage({
   const observerRef = useRef<IntersectionObserver | null>(null)
   const heroImageRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     // Reset all animations when component mounts
@@ -50,8 +51,11 @@ export default function LandingPage({
       },
     )
 
-    // Simple zoom animation based on scroll
+    // Handle scroll for header background and hero image
     const handleScroll = () => {
+      const scrollY = window.scrollY
+      setIsScrolled(scrollY > 10) // Changed from 50 to 10 for quicker fade
+
       if (heroImageRef.current) {
         const rect = heroImageRef.current.getBoundingClientRect()
         const windowHeight = window.innerHeight
@@ -119,52 +123,85 @@ export default function LandingPage({
           perspective: 1000px;
           transition: all 0.1s ease-out;
         }
+        .header-transition {
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
       `}</style>
 
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 h-24 header-transition ${
+          isScrolled ? "bg-white shadow-lg" : "bg-gray-100"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+          {/* Logo */}
           <div className="flex items-center">
             <button onClick={onLogoClick} className="focus:outline-none logo-hover">
               <Image
-                src="/images/aure-logo-new.png"
+                src="/images/aure-logo-gold.png"
                 alt="Aure Logo"
-                width={140}
-                height={52}
-                className="h-14 w-auto"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
                 quality={100}
                 priority
                 style={{
                   imageRendering: "crisp-edges",
-                  filter: "contrast(1.1) saturate(1.2)",
                 }}
                 unoptimized
               />
             </button>
           </div>
 
+          {/* Center Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50">
+            <button className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
               Company
             </button>
             <button
               onClick={onContactClick}
-              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50"
+              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
             >
               Contact
             </button>
             <button
               onClick={onAboutClick}
-              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50"
+              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
             >
               About
             </button>
           </nav>
+
+          {/* Right Side - Login & Get Started Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button
+              onClick={() => window.open("https://aurefinancial.com", "_blank")}
+              className="text-gray-700 hover:text-gray-900 font-medium transition-all duration-200 hover:scale-105 px-4 py-2"
+            >
+              Log in
+            </button>
+            <button
+              onClick={() => window.open("https://aurefinancial.com", "_blank")}
+              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
+            >
+              Get started
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button className="text-gray-600 hover:text-gray-900 p-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gray-100">
+      <section className="pt-40 pb-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
             Grow your business with everything in one login.
