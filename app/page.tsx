@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Head from "next/head"
 
 import LandingPage from "../landing-page"
@@ -25,6 +25,12 @@ export default function Page() {
     | "referral-agreement"
     | "cookies"
   >("home")
+
+  // Update URL path based on current page
+  useEffect(() => {
+    const path = currentPage === "home" ? "/" : `/${currentPage}`
+    window.history.replaceState({}, "", path)
+  }, [currentPage])
 
   const handleContactClick = () => {
     setCurrentPage("contact")

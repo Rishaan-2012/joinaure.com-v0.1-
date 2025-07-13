@@ -60,12 +60,12 @@ export default function LandingPage({
         const rect = heroImageRef.current.getBoundingClientRect()
         const windowHeight = window.innerHeight
 
-        // Calculate zoom based on scroll position
+        // Calculate zoom based on scroll position - increased scale factor for bigger growth
         const scrolled = Math.max(0, windowHeight - rect.top)
-        const rate = scrolled * 0.0002
+        const rate = scrolled * 0.0005 // Increased from 0.0002 to 0.0005 for bigger growth
         const scale = 1 + rate
 
-        heroImageRef.current.style.transform = `scale(${Math.min(scale, 1.1)})`
+        heroImageRef.current.style.transform = `scale(${Math.min(scale, 1.25)})` // Increased max scale from 1.1 to 1.25
       }
     }
 
