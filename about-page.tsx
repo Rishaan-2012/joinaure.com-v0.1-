@@ -88,9 +88,9 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
 
       {/* Fixed Header - Always white for about page due to dark hero */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24 header-transition">
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
+        <div className="max-w-7xl mx-auto px-6 h-full relative flex items-center">
+          {/* Logo - Positioned absolutely on the left */}
+          <div className="absolute left-6 flex items-center">
             <button onClick={onLogoClick} className="focus:outline-none logo-hover">
               <Image
                 src="/images/aure-logo-gold.png"
@@ -108,25 +108,27 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
             </button>
           </div>
 
-          {/* Center Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={onNavigateHome}
-              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
-            >
-              Company
-            </button>
-            <button
-              onClick={onContactClick}
-              className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
-            >
-              Contact
-            </button>
-            <span className="text-gray-900 font-medium px-4 py-2">About</span>
+          {/* Center Navigation - Absolutely centered to the page */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2">
+            <div className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={onNavigateHome}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Company
+              </button>
+              <button
+                onClick={onContactClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Contact
+              </button>
+              <span className="text-gray-900 font-medium px-4 py-2">About</span>
+            </div>
           </nav>
 
-          {/* Right Side - Login & Get Started Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Right Side - Login & Get Started Buttons - Positioned absolutely on the right */}
+          <div className="absolute right-6 hidden md:flex items-center space-x-4">
             <button
               onClick={() => window.open("https://aurefinancial.com", "_blank")}
               className="text-gray-700 hover:text-gray-900 font-medium transition-all duration-200 hover:scale-105 px-4 py-2"
@@ -142,7 +144,7 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden absolute right-6">
             <button className="text-gray-600 hover:text-gray-900 p-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
