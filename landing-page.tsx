@@ -17,6 +17,8 @@ interface LandingPageProps {
   onLogoClick: () => void
   onAboutClick: () => void
   onFooterLinkClick: (page: string) => void
+  onSolopreneurClick: () => void
+  onHighEarnerClick: () => void
 }
 
 export default function LandingPage({
@@ -24,6 +26,8 @@ export default function LandingPage({
   onLogoClick,
   onAboutClick,
   onFooterLinkClick,
+  onSolopreneurClick,
+  onHighEarnerClick,
 }: LandingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -370,7 +374,7 @@ export default function LandingPage({
       </header>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gray-100">
+      <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
             Grow your business with everything in one login.
@@ -383,38 +387,20 @@ export default function LandingPage({
 
           <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              onClick={onContactClick}
-              className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-white px-8 py-4 rounded flex items-center gap-2 font-medium"
+              onClick={onSolopreneurClick}
+              className="button-hover bg-[#e6d7b8] hover:bg-[#d5c49a] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
-              Contact Us
+              Solopreneur
               <ChevronRight className="w-4 h-4" />
             </button>
 
             <button
-              onClick={onAboutClick}
-              className="button-hover border border-gray-400 text-gray-900 px-8 py-4 rounded hover:bg-gray-50 font-medium"
+              onClick={onHighEarnerClick}
+              className="button-hover bg-[#e6d7b8] hover:bg-[#d5c49a] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
-              Learn More
+              High Earner
+              <ChevronRight className="w-4 h-4" />
             </button>
-          </div>
-        </div>
-
-        {/* Hero Image - No Animation */}
-        <div className="max-w-6xl mx-auto px-6 mt-16">
-          <div className="relative">
-            <Image
-              src="/images/hero-comparison.png"
-              alt="Feature Comparison Dashboard showing Aure's competitive advantages"
-              width={1319}
-              height={805}
-              className="w-full rounded-3xl shadow-2xl"
-              quality={100}
-              priority
-              style={{ imageRendering: "crisp-edges" }}
-            />
-            <p className="text-xs text-gray-400 text-center mt-4 opacity-60">
-              *Features and capabilities shown represent our vision and are not yet guaranteed or fully implemented.
-            </p>
           </div>
         </div>
       </section>

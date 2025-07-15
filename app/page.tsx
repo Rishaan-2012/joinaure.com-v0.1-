@@ -12,6 +12,8 @@ import TermsOfUse from "../legal-pages/terms-of-use"
 import PrivacyPolicy from "../legal-pages/privacy-policy"
 import ReferralAgreement from "../legal-pages/referral-agreement"
 import Cookies from "../legal-pages/cookies"
+import SolopreneurPage from "../solopreneur-page"
+import HighEarnerPage from "../high-earner-page"
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState<
@@ -19,6 +21,8 @@ export default function Page() {
     | "contact"
     | "thank-you"
     | "about"
+    | "solopreneur"
+    | "high-earner"
     | "general-disclosures"
     | "terms-of-use"
     | "privacy-policy"
@@ -56,6 +60,14 @@ export default function Page() {
   const handleFooterLinkClick = (page: string) => {
     setCurrentPage(page as any)
     window.scrollTo(0, 0)
+  }
+
+  const handleSolopreneurClick = () => {
+    setCurrentPage("solopreneur")
+  }
+
+  const handleHighEarnerClick = () => {
+    setCurrentPage("high-earner")
   }
 
   const renderPage = () => {
@@ -137,6 +149,28 @@ export default function Page() {
             onFooterLinkClick={handleFooterLinkClick}
           />
         )
+      case "solopreneur":
+        return (
+          <SolopreneurPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+            onBackClick={handleNavigateHome}
+          />
+        )
+      case "high-earner":
+        return (
+          <HighEarnerPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+            onBackClick={handleNavigateHome}
+          />
+        )
       default:
         return (
           <LandingPage
@@ -144,6 +178,8 @@ export default function Page() {
             onLogoClick={handleLogoClick}
             onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
           />
         )
     }

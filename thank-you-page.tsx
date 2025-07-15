@@ -87,7 +87,7 @@ export default function ThankYouPage({ onLogoClick, onNavigateHome, onFooterLink
             </div>
           </nav>
 
-          {/* Right Side - Login & Get Started Buttons - Positioned absolutely on the right */}
+          {/* Right Side - Login & Join Waitlist Buttons - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
             <button
               onClick={() => window.open("https://aurefinancial.com", "_blank")}
@@ -99,7 +99,7 @@ export default function ThankYouPage({ onLogoClick, onNavigateHome, onFooterLink
               onClick={() => window.open("https://aurefinancial.com", "_blank")}
               className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              Get started
+              Join Waitlist
             </button>
           </div>
 
