@@ -410,7 +410,7 @@ export default function LandingPage({
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
-            Financial management essentials built for entrepreneurs
+            Wealth management essentials with <br /> transparent flat-fee pricing
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -648,10 +648,12 @@ export default function LandingPage({
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-5xl md:text-6xl font-normal mb-8 leading-tight tracking-tight">
-            Simplify your finances with powerful tools and support built for growth.
+            Fiduciary advisors you can trust.
+            <br/> <br/>
+            We are registered advisors and legally bound to act in your best interests, always. 
           </h2>
 
-          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12">All without hidden costs.</p>
+          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12">No hidden fees </p>
 
           <button
             onClick={onContactClick}
