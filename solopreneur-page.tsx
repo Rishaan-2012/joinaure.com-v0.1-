@@ -1,24 +1,26 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowLeft, ChevronRight } from "lucide-react"
+import { ChevronRight, ArrowLeft } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
 
 interface SolopreneurPageProps {
-  onBackClick: () => void
   onLogoClick: () => void
+  onNavigateHome: () => void
   onContactClick: () => void
   onAboutClick: () => void
   onFooterLinkClick: (page: string) => void
+  onBackClick: () => void
 }
 
 export default function SolopreneurPage({
-  onBackClick,
   onLogoClick,
+  onNavigateHome,
   onContactClick,
   onAboutClick,
   onFooterLinkClick,
+  onBackClick,
 }: SolopreneurPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -189,6 +191,7 @@ export default function SolopreneurPage({
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Back Button */}
           <button
             onClick={onBackClick}
             className="scroll-animate flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-all duration-200 hover:scale-105"
@@ -199,12 +202,12 @@ export default function SolopreneurPage({
 
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-              Built for Solopreneurs
+              Built for <span className="text-[#d5b36e]">Solopreneurs</span>
             </h1>
 
             <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-              Everything you need to start, run, and grow your solo business. From business formation to banking,
-              payments to taxes—all in one platform designed for independent entrepreneurs.
+              Everything you need to start and grow your solo business. From business formation to tax optimization, we
+              handle the complexity so you can focus on what you do best.
             </p>
           </div>
         </div>
@@ -214,12 +217,12 @@ export default function SolopreneurPage({
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Everything you need to succeed as a solopreneur
+            Perfect for solo entrepreneurs
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
             {/* Quick Setup */}
-            <div className="scroll-animate">
+            <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
                 <Image
                   src="/images/security-shield.png"
@@ -231,15 +234,14 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Quick Business Setup</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Quick Setup</h3>
               <p className="text-gray-600 leading-relaxed">
-                Form your LLC, get your EIN, and open a business bank account in minutes. We handle all the paperwork so
-                you can focus on what you do best.
+                Form your LLC, get your EIN, and open a business bank account in minutes. We handle all the paperwork.
               </p>
             </div>
 
             {/* Simple Banking */}
-            <div className="scroll-animate">
+            <div className="scroll-animate text-center">
               <div className="bg-green-50 rounded-2xl p-8 mb-6">
                 <Image
                   src="/images/bank-building.png"
@@ -253,17 +255,16 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Simple Banking</h3>
               <p className="text-gray-600 leading-relaxed">
-                High-yield business accounts with no monthly fees. Separate your personal and business finances with
-                ease and earn more on your cash.
+                High-yield business account with no monthly fees. Separate your personal and business finances easily.
               </p>
             </div>
 
-            {/* Easy Payments */}
-            <div className="scroll-animate">
+            {/* Easy Invoicing */}
+            <div className="scroll-animate text-center">
               <div className="bg-yellow-50 rounded-2xl p-8 mb-6">
                 <Image
                   src="/images/credit-card.png"
-                  alt="Easy Payments"
+                  alt="Easy Invoicing"
                   width={300}
                   height={200}
                   className="w-full h-48 object-contain rounded-lg"
@@ -271,30 +272,9 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Easy Payments</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Easy Invoicing</h3>
               <p className="text-gray-600 leading-relaxed">
-                Accept payments from clients with simple invoicing and payment links. Get paid faster with next-day
-                deposits and automatic follow-ups.
-              </p>
-            </div>
-
-            {/* Tax Made Simple */}
-            <div className="scroll-animate">
-              <div className="bg-purple-50 rounded-2xl p-8 mb-6">
-                <Image
-                  src="/images/tax-document.png"
-                  alt="Tax Made Simple"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Tax Made Simple</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Automatic expense tracking and tax preparation. We categorize your expenses and maximize deductions so
-                you keep more of what you earn.
+                Create professional invoices and get paid faster. Accept payments online with next-day deposits.
               </p>
             </div>
           </div>
@@ -305,7 +285,7 @@ export default function SolopreneurPage({
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Why solopreneurs choose Aure
+            Why solopreneurs love Aure
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -322,19 +302,37 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Save 10+ Hours Per Week</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Save Time</h3>
               <p className="text-gray-600 leading-relaxed">
-                Stop juggling multiple platforms. Everything you need is in one place, saving you time for what matters
-                most—growing your business.
+                Stop juggling multiple platforms. Everything you need is in one place, saving you hours every week.
               </p>
             </div>
 
-            {/* Save Money */}
+            {/* Stay Organized */}
+            <div className="scroll-animate text-center">
+              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
+                <Image
+                  src="/images/database-icon.png"
+                  alt="Stay Organized"
+                  width={200}
+                  height={150}
+                  className="w-full h-32 object-contain rounded-lg mx-auto"
+                  quality={100}
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Stay Organized</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Automatic expense tracking and categorization. Never lose a receipt or miss a deduction again.
+              </p>
+            </div>
+
+            {/* Grow Confidently */}
             <div className="scroll-animate text-center">
               <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
                 <Image
                   src="/images/growth-chart.png"
-                  alt="Save Money"
+                  alt="Grow Confidently"
                   width={200}
                   height={150}
                   className="w-full h-32 object-contain rounded-lg mx-auto"
@@ -342,54 +340,11 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Save $3,000+ Per Year</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Grow Confidently</h3>
               <p className="text-gray-600 leading-relaxed">
-                Replace expensive accounting software, multiple bank accounts, and various business tools with one
-                affordable platform.
+                Scale your business with tools that grow with you. From solo to team, we've got you covered.
               </p>
             </div>
-
-            {/* Stay Compliant */}
-            <div className="scroll-animate text-center">
-              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
-                <Image
-                  src="/images/user-profile.png"
-                  alt="Stay Compliant"
-                  width={200}
-                  height={150}
-                  className="w-full h-32 object-contain rounded-lg mx-auto"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Stay 100% Compliant</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Never worry about missing deadlines or filing requirements. We handle all compliance automatically so
-                you can sleep easy.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="scroll-animate">
-            <Image
-              src="/images/founder-speaking.png"
-              alt="Happy Solopreneur"
-              width={120}
-              height={120}
-              className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
-              quality={100}
-              style={{ imageRendering: "crisp-edges" }}
-            />
-            <blockquote className="text-2xl md:text-3xl font-light text-gray-900 mb-6 leading-relaxed">
-              "Aure transformed how I run my consulting business. What used to take me hours of admin work now happens
-              automatically. I can focus on serving my clients instead of managing paperwork."
-            </blockquote>
-            <cite className="text-gray-600 font-medium">Sarah Chen, Marketing Consultant</cite>
           </div>
         </div>
       </section>
@@ -402,8 +357,7 @@ export default function SolopreneurPage({
           </h2>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            Join thousands of solopreneurs who've streamlined their business operations with Aure. Start your journey
-            today.
+            Join thousands of solopreneurs who've streamlined their business operations with Aure.
           </p>
 
           <button

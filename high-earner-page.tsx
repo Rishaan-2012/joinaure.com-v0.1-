@@ -1,24 +1,26 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowLeft, ChevronRight } from "lucide-react"
+import { ChevronRight, ArrowLeft } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
 
 interface HighEarnerPageProps {
-  onBackClick: () => void
   onLogoClick: () => void
+  onNavigateHome: () => void
   onContactClick: () => void
   onAboutClick: () => void
   onFooterLinkClick: (page: string) => void
+  onBackClick: () => void
 }
 
 export default function HighEarnerPage({
-  onBackClick,
   onLogoClick,
+  onNavigateHome,
   onContactClick,
   onAboutClick,
   onFooterLinkClick,
+  onBackClick,
 }: HighEarnerPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -189,6 +191,7 @@ export default function HighEarnerPage({
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Back Button */}
           <button
             onClick={onBackClick}
             className="scroll-animate flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-all duration-200 hover:scale-105"
@@ -199,102 +202,80 @@ export default function HighEarnerPage({
 
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-              Built for High Earners
+              Built for <span className="text-[#d5b36e]">High Earners</span>
             </h1>
 
             <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-              Advanced financial solutions for successful entrepreneurs and high-income professionals. Optimize your
-              wealth, minimize taxes, and scale your business with sophisticated tools and strategies.
+              Advanced financial tools for successful entrepreneurs. Optimize your taxes, grow your wealth, and scale
+              your business with sophisticated financial strategies.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Advanced Features Section */}
+      {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Advanced solutions for sophisticated needs
+            Advanced tools for high earners
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
-            {/* Wealth Management */}
-            <div className="scroll-animate">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* Tax Optimization */}
+            <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
                 <Image
-                  src="/images/growth-dashboard.png"
-                  alt="Wealth Management"
-                  width={400}
-                  height={250}
-                  className="w-full h-56 object-contain rounded-lg"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Wealth Management</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Sophisticated investment strategies including Treasury management, money market funds, and portfolio
-                optimization. Maximize returns while maintaining liquidity for business operations.
-              </p>
-            </div>
-
-            {/* Tax Optimization */}
-            <div className="scroll-animate">
-              <div className="bg-green-50 rounded-2xl p-8 mb-6">
-                <Image
-                  src="/images/save-money-dashboard.png"
+                  src="/images/tax-document.png"
                   alt="Tax Optimization"
-                  width={400}
-                  height={250}
-                  className="w-full h-56 object-contain rounded-lg"
+                  width={300}
+                  height={200}
+                  className="w-full h-48 object-contain rounded-lg"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Tax Optimization</h3>
               <p className="text-gray-600 leading-relaxed">
-                Advanced tax strategies including Solo 401(k) management, strategic business structuring, and year-round
-                tax planning to minimize your effective tax rate legally.
+                Advanced tax strategies to minimize your liability. Solo 401(k), SEP-IRA, and other retirement vehicles.
+              </p>
+            </div>
+
+            {/* Wealth Management */}
+            <div className="scroll-animate text-center">
+              <div className="bg-green-50 rounded-2xl p-8 mb-6">
+                <Image
+                  src="/images/growth-chart.png"
+                  alt="Wealth Management"
+                  width={300}
+                  height={200}
+                  className="w-full h-48 object-contain rounded-lg"
+                  quality={100}
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Wealth Management</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Invest idle cash in Treasuries and Money Market funds. Build long-term wealth with diversified
+                portfolios.
               </p>
             </div>
 
             {/* Business Scaling */}
-            <div className="scroll-animate">
-              <div className="bg-purple-50 rounded-2xl p-8 mb-6">
+            <div className="scroll-animate text-center">
+              <div className="bg-yellow-50 rounded-2xl p-8 mb-6">
                 <Image
-                  src="/images/financial-illustration.png"
+                  src="/images/growth-dashboard.png"
                   alt="Business Scaling"
-                  width={400}
-                  height={250}
-                  className="w-full h-56 object-contain rounded-lg"
+                  width={300}
+                  height={200}
+                  className="w-full h-48 object-contain rounded-lg"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Scaling</h3>
               <p className="text-gray-600 leading-relaxed">
-                Multi-entity management, international banking solutions, and sophisticated cash flow management tools
-                designed for businesses generating significant revenue.
-              </p>
-            </div>
-
-            {/* Concierge Support */}
-            <div className="scroll-animate">
-              <div className="bg-yellow-50 rounded-2xl p-8 mb-6">
-                <Image
-                  src="/images/user-profile.png"
-                  alt="Concierge Support"
-                  width={400}
-                  height={250}
-                  className="w-full h-56 object-contain rounded-lg"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Concierge Support</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Dedicated relationship manager, priority support, and access to financial experts. Get personalized
-                advice and white-glove service for your complex financial needs.
+                Multi-entity structures, international banking, and advanced compliance for growing businesses.
               </p>
             </div>
           </div>
@@ -305,35 +286,15 @@ export default function HighEarnerPage({
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Why high earners trust Aure
+            Why high earners choose Aure
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Save Significant Money */}
-            <div className="scroll-animate text-center">
-              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
-                <Image
-                  src="/images/growth-chart.png"
-                  alt="Save Money"
-                  width={200}
-                  height={150}
-                  className="w-full h-32 object-contain rounded-lg mx-auto"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Save $50,000+ Annually</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Advanced tax strategies and optimized business structures can save high earners tens of thousands in
-                taxes while maintaining full compliance.
-              </p>
-            </div>
-
             {/* Maximize Returns */}
             <div className="scroll-animate text-center">
               <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
                 <Image
-                  src="/images/database-icon.png"
+                  src="/images/save-money-dashboard.png"
                   alt="Maximize Returns"
                   width={200}
                   height={150}
@@ -342,19 +303,18 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Maximize Investment Returns</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Maximize Returns</h3>
               <p className="text-gray-600 leading-relaxed">
-                Sophisticated investment strategies and cash management tools help you earn more on idle cash while
-                maintaining business liquidity.
+                High-yield accounts, Treasury investments, and cashback rewards to maximize every dollar you earn.
               </p>
             </div>
 
-            {/* Expert Guidance */}
+            {/* Minimize Taxes */}
             <div className="scroll-animate text-center">
               <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
                 <Image
-                  src="/images/global-icon.png"
-                  alt="Expert Guidance"
+                  src="/images/user-profile.png"
+                  alt="Minimize Taxes"
                   width={200}
                   height={150}
                   className="w-full h-32 object-contain rounded-lg mx-auto"
@@ -362,35 +322,30 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Expert Financial Guidance</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Minimize Taxes</h3>
               <p className="text-gray-600 leading-relaxed">
-                Access to CPAs, financial advisors, and business strategists who understand the unique challenges of
-                high-income entrepreneurs.
+                Advanced tax planning and strategies to legally minimize your tax burden and keep more of what you earn.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Success Story Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="scroll-animate">
-            <Image
-              src="/images/founder-speaking.png"
-              alt="Successful Entrepreneur"
-              width={120}
-              height={120}
-              className="w-20 h-20 rounded-full mx-auto mb-6 object-cover"
-              quality={100}
-              style={{ imageRendering: "crisp-edges" }}
-            />
-            <blockquote className="text-2xl md:text-3xl font-light text-gray-900 mb-6 leading-relaxed">
-              "Aure helped me restructure my business and optimize my tax strategy, saving me over $75,000 in the first
-              year alone. Their wealth management tools have transformed how I think about business cash flow and
-              investment."
-            </blockquote>
-            <cite className="text-gray-600 font-medium">Michael Rodriguez, Tech Entrepreneur & Investor</cite>
+            {/* Scale Globally */}
+            <div className="scroll-animate text-center">
+              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
+                <Image
+                  src="/images/global-icon.png"
+                  alt="Scale Globally"
+                  width={200}
+                  height={150}
+                  className="w-full h-32 object-contain rounded-lg mx-auto"
+                  quality={100}
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Scale Globally</h3>
+              <p className="text-gray-600 leading-relaxed">
+                International banking, multi-currency support, and global compliance for businesses that think big.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -399,12 +354,11 @@ export default function HighEarnerPage({
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-8 leading-tight">
-            Ready to optimize your financial strategy?
+            Ready to optimize your wealth?
           </h2>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            Join successful entrepreneurs who've unlocked advanced financial strategies with Aure. Let's discuss how we
-            can help you achieve your goals.
+            Join successful entrepreneurs who've maximized their financial potential with Aure's advanced tools.
           </p>
 
           <button

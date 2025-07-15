@@ -154,42 +154,42 @@ export default function LandingPage({
   return (
     <div className="min-h-screen bg-white">
       <style jsx>{`
-        .scroll-animate {
-          opacity: 0;
-          transform: translateY(60px) scale(0.95);
-          transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .animate-fade-in {
-          opacity: 1 !important;
-          transform: translateY(0) scale(1) !important;
-        }
-        .button-hover {
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .button-hover:hover {
-          transform: scale(1.05) !important;
-        }
-        button {
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        button:hover {
-          transform: scale(1.05);
-        }
-        .logo-hover {
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .logo-hover:hover {
-          transform: scale(1.15);
-        }
-        .header-transition {
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-      `}</style>
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .animate-fade-in {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+      }
+      .button-hover {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .button-hover:hover {
+        transform: scale(1.05) !important;
+      }
+      button {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      button:hover {
+        transform: scale(1.05);
+      }
+      .logo-hover {
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .logo-hover:hover {
+        transform: scale(1.15);
+      }
+      .header-transition {
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    `}</style>
 
       {/* Fixed Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 h-24 header-transition ${
-          isScrolled ? "bg-white shadow-lg" : "bg-gray-100"
+          isScrolled ? "bg-white shadow-lg" : "bg-gray-50"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-full relative flex items-center">
@@ -374,7 +374,7 @@ export default function LandingPage({
       </header>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gray-50">
+      <section className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
             Grow your business with everything in one login.
@@ -388,7 +388,7 @@ export default function LandingPage({
           <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={onSolopreneurClick}
-              className="button-hover bg-[#e6d7b8] hover:bg-[#d5c49a] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
+              className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
               Solopreneur
               <ChevronRight className="w-4 h-4" />
@@ -396,7 +396,7 @@ export default function LandingPage({
 
             <button
               onClick={onHighEarnerClick}
-              className="button-hover bg-[#e6d7b8] hover:bg-[#d5c49a] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
+              className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
               High Earner
               <ChevronRight className="w-4 h-4" />
