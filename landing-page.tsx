@@ -425,8 +425,8 @@ export default function LandingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Grow globally, boost cash flow with high-yield accounts or Treasuries, and earn cashback on business
-                card purchases.
+                Customized portfolio management tailored to your financial objectives, time horizon, risk tolerance, and liquidity needs
+                
               </p>
 
           
@@ -441,7 +441,7 @@ export default function LandingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Preserve Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                All-in-one platform with powerful tools, tech, and expert support—no coding or setup needed.
+                Tax strategies to reduce your tax burden including retirement contributions, tax loss harvesting and proactive tax planning  
               </p>
 
               
@@ -458,8 +458,7 @@ export default function LandingPage({
               <h3 className="text-3xl font-normal mb-4 leading-tight">Protect Wealth</h3>
 
               <p className="text-white text-opacity-75 mb-6 leading-relaxed">
-                Grow revenue globally, boost cash with high-yield accounts or Treasuries, and earn cashback on every
-                purchase.
+                Risk management strategies to shield your wealth from market volatility, concentrated stock exposure, lawsuits, and life’s uncertainties
               </p>
 
              
