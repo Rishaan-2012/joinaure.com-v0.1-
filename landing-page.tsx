@@ -390,7 +390,7 @@ export default function LandingPage({
               onClick={onSolopreneurClick}
               className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
-              dolly234Solopreneur
+              newSolopreneur
               <ChevronRight className="w-4 h-4" />
             </button>
 
