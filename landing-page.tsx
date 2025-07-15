@@ -419,35 +419,23 @@ export default function LandingPage({
             {/* Growth Card */}
             <div className="scroll-animate bg-blue-100 rounded-2xl p-8 relative overflow-hidden transition-transform duration-300 hover:scale-105">
               <div className="bg-black bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6">
-                <span className="text-gray-900 text-sm font-medium">Growth</span>
+                <span className="text-gray-900 text-sm font-medium">Grow your Money</span>
               </div>
 
-              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow your Business</h3>
+              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow Money</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Grow globally, boost cash flow with high-yield accounts or Treasuries, and earn cashback on business
                 card purchases.
               </p>
 
-              <Image
-                src="/images/growth-dashboard.png"
-                alt="Business Growth Dashboard showing scaling from $1M to $100M"
-                width={335}
-                height={188}
-                className="w-full rounded-2xl shadow-lg mb-6"
-                quality={100}
-                style={{ imageRendering: "crisp-edges" }}
-              />
-
-              <button onClick={onAboutClick} className="text-gray-900 font-medium hover:underline">
-                Learn more
-              </button>
+          
             </div>
 
             {/* Time Card */}
             <div className="scroll-animate bg-yellow-50 rounded-2xl p-8 relative overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
               <div className="bg-black bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6 w-fit">
-                <span className="text-gray-900 text-sm font-medium">Time</span>
+                <span className="text-gray-900 text-sm font-medium">Save your Money</span>
               </div>
 
               <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Save your time</h3>
@@ -456,58 +444,25 @@ export default function LandingPage({
                 All-in-one platform with powerful tools, tech, and expert support—no coding or setup needed.
               </p>
 
-              <div className="relative mb-6 flex-grow">
-                <Image
-                  src="/images/global-icon.png"
-                  alt="Global Operations Icon"
-                  width={193}
-                  height={154}
-                  className="rounded-lg shadow-lg opacity-60"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-                <Image
-                  src="/images/database-icon.png"
-                  alt="Database Management Icon"
-                  width={209}
-                  height={177}
-                  className="absolute top-8 right-0 rounded-lg shadow-lg"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
+              
 
-              <button onClick={onAboutClick} className="text-gray-900 font-medium hover:underline self-start">
-                Learn more
-              </button>
+            
             </div>
 
             {/* Money Card */}
             <div className="scroll-animate bg-gray-900 rounded-2xl p-8 relative overflow-hidden text-white transition-transform duration-300 hover:scale-105">
               <div className="bg-white bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6">
-                <span className="text-white text-sm font-medium">Money</span>
+                <span className="text-white text-sm font-medium">Protect your Wealth </span>
               </div>
 
-              <h3 className="text-3xl font-normal mb-4 leading-tight">Save your money</h3>
+              <h3 className="text-3xl font-normal mb-4 leading-tight">Protect wealth</h3>
 
               <p className="text-white text-opacity-75 mb-6 leading-relaxed">
                 Grow revenue globally, boost cash with high-yield accounts or Treasuries, and earn cashback on every
                 purchase.
               </p>
 
-              <Image
-                src="/images/save-money-dashboard.png"
-                alt="Money Savings Dashboard showing $100,000 potential savings"
-                width={315}
-                height={176}
-                className="w-full rounded-2xl shadow-lg mb-6"
-                quality={100}
-                style={{ imageRendering: "crisp-edges" }}
-              />
-
-              <button onClick={onAboutClick} className="text-white font-medium hover:underline">
-                Learn more
-              </button>
+             
             </div>
           </div>
         </div>
