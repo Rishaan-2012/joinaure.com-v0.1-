@@ -377,7 +377,9 @@ export default function LandingPage({
       <section className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-            Modern Wealth Management for Solopreneurs and High Earners
+            Modern Wealth Management for
+            <br />
+            Solopreneurs and High Earners
           </h1>
 
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -390,7 +392,7 @@ export default function LandingPage({
               onClick={onSolopreneurClick}
               className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
-              Solopreneur
+              Solo Business Owner
               <ChevronRight className="w-4 h-4" />
             </button>
 
@@ -398,7 +400,7 @@ export default function LandingPage({
               onClick={onHighEarnerClick}
               className="button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium shadow-md hover:shadow-lg"
             >
-              High Earner
+              High Income Professional
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
