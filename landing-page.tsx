@@ -382,9 +382,8 @@ export default function LandingPage({
             Solopreneurs and High Earners
           </h1>
 
-          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-            Combine Banking, Payments, Investing, Taxes, Retirement and Business Compliance. Powering Financial
-            Inclusion and Growth for Independent Entrepreneurs Locally and Globally
+          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+            Grow and protect your net worth with personalized investment, retirement, and tax strategies
           </p>
 
           <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -408,7 +407,7 @@ export default function LandingPage({
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
             Financial management essentials built for entrepreneurs
