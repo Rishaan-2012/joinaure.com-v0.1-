@@ -377,7 +377,7 @@ export default function LandingPage({
       <section className="min-h-screen flex items-center justify-center bg-gray-50">
     
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-            Grow your business with everything in one login.
+             Smart Wealth Management for Soloprueners and High Earners
           </h1>
 
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
