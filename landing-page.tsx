@@ -409,8 +409,10 @@ export default function LandingPage({
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
-            Wealth management essentials with <br /> transparent flat-fee pricing
+          <h2 className="scroll-animate text-3xl md:text-4xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+            Wealth management with transparent flat-fee pricing.
+            <br />
+            No Percentages. No Commission. Ever.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -646,21 +648,20 @@ export default function LandingPage({
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-5xl md:text-6xl font-normal mb-8 leading-tight tracking-tight">
-            Fiduciary advisors you can trust.
-            <br/> <br/>
-            We are registered advisors and legally bound to act in your best interests, always. 
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-6 leading-tight">
+            Fiduciary advisors you can trust
           </h2>
 
+          <p className="scroll-animate text-3xl md:text-4xl font-normal mb-12 leading-tight text-[#d5b36e]">
+            We are registered advisors and legally bound to act in your best interests, always
+          </p>
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12">No hidden fees </p>
-
           <button
             onClick={onContactClick}
-            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium"
+            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded-lg font-medium"
           >
             Contact Us
-            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </section>
