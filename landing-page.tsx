@@ -409,20 +409,20 @@ export default function LandingPage({
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-3xl md:text-4xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+          <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
             Wealth management with transparent flat-fee pricing.
-            <br />
-            No Percentages. No Commission. Ever.
+           
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Growth Card */}
             <div className="scroll-animate bg-blue-100 rounded-2xl p-8 relative overflow-hidden transition-transform duration-300 hover:scale-105">
               <div className="bg-black bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6">
-                <span className="text-gray-900 text-sm font-medium">Grow your Money</span>
+               
+                 <span className="text-gray-900 text-sm font-medium">Investment Management</span>
               </div>
 
-              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow Money</h3>
+              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Grow globally, boost cash flow with high-yield accounts or Treasuries, and earn cashback on business
@@ -435,10 +435,10 @@ export default function LandingPage({
             {/* Time Card */}
             <div className="scroll-animate bg-yellow-50 rounded-2xl p-8 relative overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
               <div className="bg-black bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6 w-fit">
-                <span className="text-gray-900 text-sm font-medium">Save your Money</span>
+                <span className="text-gray-900 text-sm font-medium">Tax Management</span>
               </div>
 
-              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Save your time</h3>
+              <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Preserve Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
                 All-in-one platform with powerful tools, tech, and expert support—no coding or setup needed.
@@ -452,10 +452,10 @@ export default function LandingPage({
             {/* Money Card */}
             <div className="scroll-animate bg-gray-900 rounded-2xl p-8 relative overflow-hidden text-white transition-transform duration-300 hover:scale-105">
               <div className="bg-white bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6">
-                <span className="text-white text-sm font-medium">Protect your Wealth </span>
+                <span className="text-white text-sm font-medium">Risk Management </span>
               </div>
 
-              <h3 className="text-3xl font-normal mb-4 leading-tight">Protect wealth</h3>
+              <h3 className="text-3xl font-normal mb-4 leading-tight">Protect Wealth</h3>
 
               <p className="text-white text-opacity-75 mb-6 leading-relaxed">
                 Grow revenue globally, boost cash with high-yield accounts or Treasuries, and earn cashback on every
