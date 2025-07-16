@@ -4,6 +4,13 @@ import Image from "next/image"
 import { ChevronRight, ArrowLeft } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 
 interface SolopreneurPageProps {
   onLogoClick: () => void
@@ -12,6 +19,8 @@ interface SolopreneurPageProps {
   onAboutClick: () => void
   onFooterLinkClick: (page: string) => void
   onBackClick: () => void
+  onSolopreneurClick: () => void
+  onHighEarnerClick: () => void
 }
 
 export default function SolopreneurPage({
@@ -21,6 +30,8 @@ export default function SolopreneurPage({
   onAboutClick,
   onFooterLinkClick,
   onBackClick,
+  onSolopreneurClick,
+  onHighEarnerClick,
 }: SolopreneurPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -112,6 +123,33 @@ export default function SolopreneurPage({
         .header-transition {
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* Hide all NavigationMenuTrigger arrows completely */
+        [data-radix-navigation-menu-trigger] svg,
+        [data-radix-navigation-menu-trigger]::after,
+        [data-radix-navigation-menu-trigger]::before,
+        .navigation-menu-trigger-arrow,
+        [data-radix-navigation-menu-trigger] [data-radix-navigation-menu-indicator] {
+          display: none !important;
+          visibility: hidden !important;
+        }
+
+        /* Ensure NavigationMenuTrigger matches regular buttons exactly */
+        [data-radix-navigation-menu-trigger] {
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          padding: 0.5rem 1rem !important;
+          border: none !important;
+          background: transparent !important;
+        }
+
+        /* Remove any default NavigationMenu styling that might affect size */
+        [data-radix-navigation-menu-root],
+        [data-radix-navigation-menu-list],
+        [data-radix-navigation-menu-item] {
+          font-size: inherit !important;
+        }
       `}</style>
 
       {/* Fixed Header */}
@@ -143,9 +181,36 @@ export default function SolopreneurPage({
           {/* Center Navigation - Absolutely centered to the page */}
           <nav className="absolute left-1/2 transform -translate-x-1/2">
             <div className="hidden md:flex items-center space-x-8">
-              <button className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                Company
-              </button>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-transparent data-[state=open]:bg-gray-50 data-[state=open]:text-gray-900"
+                      style={{ fontSize: "inherit", fontWeight: "inherit", lineHeight: "inherit" }}
+                    >
+                      Who We Serve
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 p-4">
+                        <div className="space-y-2">
+                          <button
+                            onClick={onSolopreneurClick}
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
+                          >
+                            Solopreneur
+                          </button>
+                          <button
+                            onClick={onHighEarnerClick}
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
+                          >
+                            High Earner
+                          </button>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
               <button
                 onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
