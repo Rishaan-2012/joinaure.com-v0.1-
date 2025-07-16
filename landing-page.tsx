@@ -191,18 +191,31 @@ export default function LandingPage({
       .header-transition {
         transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .menu-card {
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      /* Hide all NavigationMenuTrigger arrows completely */
+      [data-radix-navigation-menu-trigger] svg,
+      [data-radix-navigation-menu-trigger]::after,
+      [data-radix-navigation-menu-trigger]::before,
+      .navigation-menu-trigger-arrow,
+      [data-radix-navigation-menu-trigger] [data-radix-navigation-menu-indicator] {
+        display: none !important;
+        visibility: hidden !important;
       }
-      .menu-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Ensure NavigationMenuTrigger matches regular buttons exactly */
+      [data-radix-navigation-menu-trigger] {
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        padding: 0.5rem 1rem !important;
+        border: none !important;
+        background: transparent !important;
       }
-      .menu-card:hover .chevron-icon {
-        transform: translateX(4px);
-      }
-      .chevron-icon {
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Remove any default NavigationMenu styling that might affect size */
+      [data-radix-navigation-menu-root],
+      [data-radix-navigation-menu-list],
+      [data-radix-navigation-menu-item] {
+        font-size: inherit !important;
       }
     `}</style>
 
@@ -238,54 +251,26 @@ export default function LandingPage({
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-transparent hover:bg-gray-50 data-[state=open]:bg-gray-50">
-                      Who we Serve
+                    <NavigationMenuTrigger
+                      className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-transparent data-[state=open]:bg-gray-50 data-[state=open]:text-gray-900"
+                      style={{ fontSize: "inherit", fontWeight: "inherit", lineHeight: "inherit" }}
+                    >
+                      Who We Serve
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="w-[420px] bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
-                        {/* Header */}
-                        <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-1">Choose Your Path</h3>
-                          <p className="text-sm text-gray-600">Tailored wealth management for your unique situation</p>
-                        </div>
-
-                        {/* Menu Options */}
-                        <div className="p-4 space-y-3">
+                      <div className="w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 p-4">
+                        <div className="space-y-2">
                           <button
                             onClick={onSolopreneurClick}
-                            className="menu-card w-full text-left p-4 rounded-lg border border-gray-200 hover:border-[#d5b36e] hover:bg-gradient-to-r hover:from-[#d5b36e]/5 hover:to-[#c4a05d]/5 group"
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
                           >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-[#c4a05d]">Soloprenuer</h4>
-                                <p className="text-sm text-gray-600">For solo business owners</p>
-                              </div>
-                              <ChevronRight className="chevron-icon w-5 h-5 text-gray-400 group-hover:text-[#c4a05d]" />
-                            </div>
+                            Solopreneur
                           </button>
-
                           <button
                             onClick={onHighEarnerClick}
-                            className="menu-card w-full text-left p-4 rounded-lg border border-gray-200 hover:border-[#d5b36e] hover:bg-gradient-to-r hover:from-[#d5b36e]/5 hover:to-[#c4a05d]/5 group"
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
                           >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-[#c4a05d]">High Earner</h4>
-                                <p className="text-sm text-gray-600">For high-income professionals</p>
-                              </div>
-                              <ChevronRight className="chevron-icon w-5 h-5 text-gray-400 group-hover:text-[#c4a05d]" />
-                            </div>
-                          </button>
-                        </div>
-
-                        {/* Footer */}
-                        <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
-                          <p className="text-xs text-gray-500 mb-2">Need help choosing?</p>
-                          <button
-                            onClick={onContactClick}
-                            className="text-sm text-[#c4a05d] hover:text-[#b8955a] font-medium transition-colors"
-                          >
-                            Contact our team →
+                            High Earner
                           </button>
                         </div>
                       </div>
@@ -669,19 +654,23 @@ export default function LandingPage({
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-6 leading-tight">
+      <section className="py-24 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-8 leading-tight">
             Fiduciary advisors you can trust
           </h2>
 
-          <p className="scroll-animate text-3xl md:text-4xl font-normal mb-12 leading-tight text-[#d5b36e]">
+          <p className="scroll-animate text-2xl md:text-3xl font-normal mb-6 leading-tight text-[#d5b36e]">
             We are registered advisors and legally bound to act in your best interests, always
           </p>
-          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12">No hidden fees </p>
+
+          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
+            No hidden fees. No conflicts of interest. 
+          </p>
+
           <button
             onClick={onContactClick}
-            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded-lg font-medium"
+            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-10 py-4 rounded-lg font-medium text-lg shadow-lg hover:shadow-xl"
           >
             Contact Us
           </button>
