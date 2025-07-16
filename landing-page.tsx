@@ -10,6 +10,13 @@ import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 import Footer from "./components/footer"
 
 interface LandingPageProps {
@@ -184,6 +191,19 @@ export default function LandingPage({
       .header-transition {
         transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
+      .menu-card {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .menu-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .menu-card:hover .chevron-icon {
+        transform: translateX(4px);
+      }
+      .chevron-icon {
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
     `}</style>
 
       {/* Fixed Header */}
@@ -215,9 +235,65 @@ export default function LandingPage({
           {/* Center Navigation - Absolutely centered to the page */}
           <nav className="absolute left-1/2 transform -translate-x-1/2">
             <div className="hidden md:flex items-center space-x-8">
-              <button className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                Company
-              </button>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-transparent hover:bg-gray-50 data-[state=open]:bg-gray-50">
+                      Who we Serve
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[420px] bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                        {/* Header */}
+                        <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-1">Choose Your Path</h3>
+                          <p className="text-sm text-gray-600">Tailored wealth management for your unique situation</p>
+                        </div>
+
+                        {/* Menu Options */}
+                        <div className="p-4 space-y-3">
+                          <button
+                            onClick={onSolopreneurClick}
+                            className="menu-card w-full text-left p-4 rounded-lg border border-gray-200 hover:border-[#d5b36e] hover:bg-gradient-to-r hover:from-[#d5b36e]/5 hover:to-[#c4a05d]/5 group"
+                          >
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-[#c4a05d]">Soloprenuer</h4>
+                                <p className="text-sm text-gray-600">For solo business owners</p>
+                              </div>
+                              <ChevronRight className="chevron-icon w-5 h-5 text-gray-400 group-hover:text-[#c4a05d]" />
+                            </div>
+                          </button>
+
+                          <button
+                            onClick={onHighEarnerClick}
+                            className="menu-card w-full text-left p-4 rounded-lg border border-gray-200 hover:border-[#d5b36e] hover:bg-gradient-to-r hover:from-[#d5b36e]/5 hover:to-[#c4a05d]/5 group"
+                          >
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-[#c4a05d]">High Earner</h4>
+                                <p className="text-sm text-gray-600">For high-income professionals</p>
+                              </div>
+                              <ChevronRight className="chevron-icon w-5 h-5 text-gray-400 group-hover:text-[#c4a05d]" />
+                            </div>
+                          </button>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                          <p className="text-xs text-gray-500 mb-2">Need help choosing?</p>
+                          <button
+                            onClick={onContactClick}
+                            className="text-sm text-[#c4a05d] hover:text-[#b8955a] font-medium transition-colors"
+                          >
+                            Contact our team →
+                          </button>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
               <button
                 onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
@@ -411,25 +487,21 @@ export default function LandingPage({
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
             Wealth management with transparent flat-fee pricing.
-           
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Growth Card */}
             <div className="scroll-animate bg-blue-100 rounded-2xl p-8 relative overflow-hidden transition-transform duration-300 hover:scale-105">
               <div className="bg-black bg-opacity-10 rounded-full px-4 py-2 inline-block mb-6">
-               
-                 <span className="text-gray-900 text-sm font-medium">Investment Management</span>
+                <span className="text-gray-900 text-sm font-medium">Investment Management</span>
               </div>
 
               <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Grow Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Customized portfolio management tailored to your financial objectives, time horizon, risk tolerance, and liquidity needs
-                
+                Customized portfolio management tailored to your financial objectives, time horizon, risk tolerance, and
+                liquidity needs
               </p>
-
-          
             </div>
 
             {/* Time Card */}
@@ -441,12 +513,9 @@ export default function LandingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-4 leading-tight">Preserve Wealth</h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Tax strategies to reduce your tax burden including retirement contributions, tax loss harvesting and proactive tax planning  
+                Tax strategies to reduce your tax burden including retirement contributions, tax loss harvesting and
+                proactive tax planning
               </p>
-
-              
-
-            
             </div>
 
             {/* Money Card */}
@@ -458,10 +527,9 @@ export default function LandingPage({
               <h3 className="text-3xl font-normal mb-4 leading-tight">Protect Wealth</h3>
 
               <p className="text-white text-opacity-75 mb-6 leading-relaxed">
-                Risk management strategies to shield your wealth from market volatility, concentrated stock exposure, lawsuits, and life’s uncertainties
+                Risk management strategies to shield your wealth from market volatility, concentrated stock exposure,
+                lawsuits, and life's uncertainties
               </p>
-
-             
             </div>
           </div>
         </div>
