@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ChevronRight, ArrowLeft } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
 import {
@@ -263,7 +263,6 @@ export default function SolopreneurPage({
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           {/* Back Button */}
-          
 
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
@@ -342,9 +341,8 @@ export default function SolopreneurPage({
                 Invest in high yield and low risk treasury bills and money market funds
               </p>
             </div>
-            
-            
- {/* Quick Setup */}
+
+            {/* Quick Setup */}
             <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
                 <Image
@@ -359,11 +357,12 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Solo 401K</h3>
               <p className="text-gray-600 leading-relaxed">
-                Supercharge your retirement savings and reduce your tax liability. Contribute both as an employee and employer.
+                Supercharge your retirement savings and reduce your tax liability. Contribute both as an employee and
+                employer.
               </p>
             </div>
 
-             {/* Quick Setup */}
+            {/* Quick Setup */}
             <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
                 <Image
@@ -378,11 +377,12 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing</h3>
               <p className="text-gray-600 leading-relaxed">
-                Send payment links and invoices, allowing your clients to pay via credit cards, debit cards or digital wallets. Enjoy lowest processing fees without vendor lock-in
+                Send payment links and invoices, allowing your clients to pay via credit cards, debit cards or digital
+                wallets. Enjoy lowest processing fees without vendor lock-in
               </p>
             </div>
 
-             {/* Quick Setup */}
+            {/* Quick Setup */}
             <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
                 <Image
@@ -397,11 +397,10 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Compliance</h3>
               <p className="text-gray-600 leading-relaxed">
-                Ensure your business remains in good standing with both state and federal regulations including taxes, bookkeeping, and LLC paperwork
+                Ensure your business remains in good standing with both state and federal regulations including taxes,
+                bookkeeping, and LLC paperwork
               </p>
             </div>
-
-
           </div>
         </div>
       </section>
@@ -413,13 +412,59 @@ export default function SolopreneurPage({
             Why solopreneurs love Aure
           </h2>
 
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            {/* Reason 1 */}
+            <div className="scroll-animate text-center">
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Save Money on Taxes</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our membership fees are 100% tax deductible as a business expense. Plus, with proper business structure
+                and Solo 401K contributions, you'll save thousands in taxes annually.
+              </p>
+            </div>
 
+            {/* Reason 2 */}
+            <div className="scroll-animate text-center">
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Everything in One Place</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Stop juggling multiple platforms and vendors. From business formation to banking, investments, and
+                compliance - we handle it all so you can focus on growing your business.
+              </p>
+            </div>
 
-
-
-
-
-          
+            {/* Reason 3 */}
+            <div className="scroll-animate text-center">
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Built for Solo Success</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Unlike generic business solutions, Aure is specifically designed for solopreneurs. We understand your
+                unique challenges and provide tailored solutions that scale with your solo business.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -430,13 +475,10 @@ export default function SolopreneurPage({
             Ready to simplify your solo business?
           </h2>
 
-    
-
           <button
             onClick={onContactClick}
             className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium mx-auto"
           >
-          
             Contact Us
             <ChevronRight className="w-4 h-4" />
           </button>
