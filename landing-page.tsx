@@ -409,7 +409,7 @@ export default function LandingPage({
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+          <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
             Wealth management with transparent flat-fee pricing.
            
           </h2>
