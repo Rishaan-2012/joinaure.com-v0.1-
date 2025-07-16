@@ -277,133 +277,165 @@ export default function SolopreneurPage({
         </div>
       </section>
 
-      {/* Features Section */}
+
+
+
+
+
+      {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-4xl md:text-3xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Fees are 100% tax deductible, plus with the tax savings, Aure membership quite literally pays for itself
+          <h2 className="scroll-animate text-5xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+            Fees are 100% tax deductible, plus with the tax savings, <br/>Aure membership quite literally pays for itself
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {/* Quick Setup */}
+          <div className="grid md:grid-cols-3 gap-12 mb-20">
+            {/* LLC & Compliance */}
             <div className="scroll-animate text-center">
-              <div className="bg-blue-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
                   src="/images/security-shield.png"
-                  alt="Quick Business Setup"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  alt="Security Shield representing LLC & Compliance services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Formation and Setup</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">LLC & Compliance</h3>
               <p className="text-gray-600 leading-relaxed">
-                We will help you launch your new business with a new LLC regsitration,complete legal paperwork and EIN
+                We will help you launch your new business with a new LLC regsitration and EIN
               </p>
             </div>
 
-            {/* Simple Banking */}
+            {/* Business Banking */}
             <div className="scroll-animate text-center">
-              <div className="bg-green-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
                   src="/images/bank-building.png"
-                  alt="Simple Banking"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  alt="Bank Building representing Business Banking services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Banking</h3>
               <p className="text-gray-600 leading-relaxed">
-                Separate your personal and business finances.Get a Business card for business expenses
+                We help you separate your personal and business finances by opening a business account and card for business expenses
               </p>
             </div>
 
-            {/* Easy Invoicing */}
+             {/* Invest & Retire */}
             <div className="scroll-animate text-center">
-              <div className="bg-yellow-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
-                  src="/images/credit-card.png"
-                  alt="Easy Invoicing"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  src="/images/growth-chart.png"
+                  alt="Growth Chart representing Investment & Retirement services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Investment Account</h3>
               <p className="text-gray-600 leading-relaxed">
-                Invest in high yield and low risk treasury bills and money market funds
+                We help you earn a much higher yield than any other bank accounts by investing your idle cash into low risk Treasuries or Money Market funds. 
               </p>
             </div>
+          </div>
 
-            {/* Quick Setup */}
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Invest & Retire */}
             <div className="scroll-animate text-center">
-              <div className="bg-blue-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
-                  src="/images/security-shield.png"
-                  alt="Quick Business Setup"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  src="/images/growth-chart.png"
+                  alt="Growth Chart representing Investment & Retirement services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Solo 401K</h3>
               <p className="text-gray-600 leading-relaxed">
-                Supercharge your retirement savings and reduce your tax liability. Contribute both as an employee and
-                employer.
+                We help open your Solo 401(k) account to grow your retirement savings and reduce your taxes
               </p>
             </div>
+          
 
-            {/* Quick Setup */}
+            {/* Cards & Cashback */}
             <div className="scroll-animate text-center">
-              <div className="bg-blue-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
-                  src="/images/security-shield.png"
-                  alt="Quick Business Setup"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  src="/images/credit-card.png"
+                  alt="Credit Card representing Cards & Cashback services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing </h3>
               <p className="text-gray-600 leading-relaxed">
-                Send payment links and invoices, allowing your clients to pay via credit cards, debit cards or digital
-                wallets. Enjoy lowest processing fees without vendor lock-in
+                We help you with Invoicing and Card Payment Acceptance with low processing fees
               </p>
             </div>
 
-            {/* Quick Setup */}
+          
+            {/* Payments & Tax */}
             <div className="scroll-animate text-center">
-              <div className="bg-blue-50 rounded-2xl p-8 mb-6">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
-                  src="/images/security-shield.png"
-                  alt="Quick Business Setup"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
+                  src="/images/tax-document.png"
+                  alt="Tax Document representing Payments & Tax services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
                   quality={100}
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Compliance</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Bookeeping & Tax</h3>
               <p className="text-gray-600 leading-relaxed">
-                Ensure your business remains in good standing with both state and federal regulations including taxes,
-                bookkeeping, and LLC paperwork
+                We help you maximize your deductions with bookkeeping and taxes 
               </p>
             </div>
           </div>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
 
       {/* Benefits Section */}
       <section className="py-20 bg-gray-50">
