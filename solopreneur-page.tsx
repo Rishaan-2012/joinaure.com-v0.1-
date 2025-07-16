@@ -269,7 +269,7 @@ export default function SolopreneurPage({
               Built for <span className="text-[#d5b36e]">Solopreneurs</span>
             </h1>
 
-            <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="scroll-animate text-gray-600 text-lg max-w-4xl mx-auto mb-12 leading-relaxed">
               Simplify your solo business by combining Wealth, Finance and Business Compliance management under one
               membership
             </p>
@@ -285,7 +285,7 @@ export default function SolopreneurPage({
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="scroll-animate text-5xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+          <h2 className="scroll-animate text-5xl md:text-4xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
             Fees are 100% tax deductible, plus with the tax savings, <br/>Aure membership quite literally pays for itself
           </h2>
 
