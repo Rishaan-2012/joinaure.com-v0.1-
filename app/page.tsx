@@ -158,6 +158,8 @@ export default function Page() {
             onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
             onBackClick={handleNavigateHome}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
           />
         )
       case "high-earner":
@@ -169,6 +171,8 @@ export default function Page() {
             onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
             onBackClick={handleNavigateHome}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
           />
         )
       default:
