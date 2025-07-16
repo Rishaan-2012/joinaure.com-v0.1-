@@ -303,18 +303,18 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">LLC & Compliance</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Setup & Compliance</h3>
               <p className="text-gray-600 leading-relaxed">
-                We will help you launch your new business with a new LLC regsitration and EIN
+                We can help launch your new business with LLC regsitration, EIN and Business bank account to separate your personal and business finances
               </p>
             </div>
 
-            {/* Business Banking */}
+            {/* Books & Support */}
             <div className="scroll-animate text-center">
               <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
-                  src="/images/bank-building.png"
-                  alt="Bank Building representing Business Banking services"
+                  src="/images/user-profile.png"
+                  alt="User Profile representing Books & Support services"
                   width={400}
                   height={400}
                   className="rounded-lg max-w-full max-h-full object-contain"
@@ -322,13 +322,13 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Banking</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Financial Planning</h3>
               <p className="text-gray-600 leading-relaxed">
-                We help you separate your personal and business finances by opening a business account and card for business expenses
+                Personalized financial planning to help you take control of cash flow, manage business expenses, and build toward long-term goals 
               </p>
             </div>
 
-             {/* Invest & Retire */}
+            {/* Invest & Retire */}
             <div className="scroll-animate text-center">
               <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
                 <Image
@@ -346,6 +346,11 @@ export default function SolopreneurPage({
                 We help you earn a much higher yield than any other bank accounts by investing your idle cash into low risk Treasuries or Money Market funds. 
               </p>
             </div>
+
+            
+          
+
+             
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
@@ -364,29 +369,12 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Solo 401K</h3>
               <p className="text-gray-600 leading-relaxed">
-                We help open your Solo 401(k) account to grow your retirement savings and reduce your taxes
+                We help open your Solo 401(k) account to grow your retirement savings and reduce your taxes. Contribute both as an employee and an Employer.
               </p>
             </div>
           
 
-            {/* Cards & Cashback */}
-            <div className="scroll-animate text-center">
-              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
-                <Image
-                  src="/images/credit-card.png"
-                  alt="Credit Card representing Cards & Cashback services"
-                  width={400}
-                  height={400}
-                  className="rounded-lg max-w-full max-h-full object-contain"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We help you with Invoicing and Card Payment Acceptance with low processing fees
-              </p>
-            </div>
+            
 
           
             {/* Payments & Tax */}
@@ -402,9 +390,27 @@ export default function SolopreneurPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Bookeeping & Tax</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4"> Taxes </h3>
               <p className="text-gray-600 leading-relaxed">
-                We help you maximize your deductions with bookkeeping and taxes 
+                We support you year round to get the most tax savings
+              </p>
+            </div>
+            {/* Cards & Cashback */}
+            <div className="scroll-animate text-center">
+              <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
+                <Image
+                  src="/images/credit-card.png"
+                  alt="Credit Card representing Cards & Cashback services"
+                  width={400}
+                  height={400}
+                  className="rounded-lg max-w-full max-h-full object-contain"
+                  quality={100}
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing </h3>
+              <p className="text-gray-600 leading-relaxed">
+               We can help you with Invoicing and allowing your clients to pay via credit cards, debit cards or digital wallets with low processing fees (through our trusted partners)
               </p>
             </div>
           </div>
