@@ -392,7 +392,7 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4"> Taxes </h3>
               <p className="text-gray-600 leading-relaxed">
-                We support you year round to get the most tax savings
+                We support you year round to get the most tax savings with smart tax saving strategies. We also support tax filing through our trusted partner
               </p>
             </div>
             {/* Cards & Cashback */}
@@ -463,7 +463,7 @@ export default function SolopreneurPage({
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Save Money on Taxes</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Save Money and Stay Compliant</h3>
               <p className="text-gray-600 leading-relaxed">
                 Our membership fees are 100% tax deductible as a business expense. Plus, with proper business structure
                 and Solo 401K contributions, you'll save thousands in taxes annually.
