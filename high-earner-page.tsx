@@ -262,14 +262,7 @@ export default function HighEarnerPage({
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Back Button */}
-          <button
-            onClick={onBackClick}
-            className="scroll-animate flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-all duration-200 hover:scale-105"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </button>
+          
 
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
@@ -277,8 +270,7 @@ export default function HighEarnerPage({
             </h1>
 
             <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-              Advanced financial tools for successful entrepreneurs. Optimize your taxes, grow your wealth, and scale
-              your business with sophisticated financial strategies.
+               Optimize your taxes, grow your wealth, and reduce concentrated stock exposure with sophisticated financial strategies 
             </p>
           </div>
         </div>
@@ -288,10 +280,28 @@ export default function HighEarnerPage({
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Advanced tools for high earners
+            Advanced financial tools for high income professionals
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {/* Wealth Management */}
+            <div className="scroll-animate text-center">
+              <div className="bg-green-50 rounded-2xl p-8 mb-6">
+                <Image
+                  src="/images/growth-chart.png"
+                  alt="Wealth Management"
+                  width={300}
+                  height={200}
+                  className="w-full h-48 object-contain rounded-lg"
+                  quality={100}
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Personalized Investment Management</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Investment planning and management tailored to your financial objectives, time horizon, risk tolerance, and liquidity needs
+              </p>
+            </div>
             {/* Tax Optimization */}
             <div className="scroll-animate text-center">
               <div className="bg-blue-50 rounded-2xl p-8 mb-6">
@@ -307,29 +317,11 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Tax Optimization</h3>
               <p className="text-gray-600 leading-relaxed">
-                Advanced tax strategies to minimize your liability. Solo 401(k), SEP-IRA, and other retirement vehicles.
+                Proactive tax planning and strategies to minimize your tax liability and increase your retirement savings
               </p>
             </div>
 
-            {/* Wealth Management */}
-            <div className="scroll-animate text-center">
-              <div className="bg-green-50 rounded-2xl p-8 mb-6">
-                <Image
-                  src="/images/growth-chart.png"
-                  alt="Wealth Management"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-contain rounded-lg"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
-              </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Wealth Management</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Invest idle cash in Treasuries and Money Market funds. Build long-term wealth with diversified
-                portfolios.
-              </p>
-            </div>
+            
 
             {/* Business Scaling */}
             <div className="scroll-animate text-center">
@@ -344,9 +336,9 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Scaling</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Diversification and Covered Calls </h3>
               <p className="text-gray-600 leading-relaxed">
-                Multi-entity structures, international banking, and advanced compliance for growing businesses.
+                Turn stock concentration into income. Covered call strategies that aim to diversify your concentrated stock positions while also generating income.
               </p>
             </div>
           </div>
@@ -374,9 +366,9 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Maximize Returns</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Tax-Aware Investment Management</h3>
               <p className="text-gray-600 leading-relaxed">
-                High-yield accounts, Treasury investments, and cashback rewards to maximize every dollar you earn.
+                Active portfolio management that adapts to macroeconomic conditions and minimizes tax drag
               </p>
             </div>
 
@@ -393,9 +385,9 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Minimize Taxes</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Fidiciury duty with fixed flat fee Taxes</h3>
               <p className="text-gray-600 leading-relaxed">
-                Advanced tax planning and strategies to legally minimize your tax burden and keep more of what you earn.
+                One fee. No commissions. No percentages. No rising cost as your portfolio grows.As a fidicury, we legally and ethically obligated to act in the best interests of our clients at all times 
               </p>
             </div>
 
@@ -412,9 +404,9 @@ export default function HighEarnerPage({
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Scale Globally</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Diversification and Tax Optimization for highly appreciated stocks </h3>
               <p className="text-gray-600 leading-relaxed">
-                International banking, multi-currency support, and global compliance for businesses that think big.
+                We work with you to create customized covered call strategies that aim to diversify your concentrated stock positions while also generating income. You stay in control of your stocks without any lockup
               </p>
             </div>
           </div>
@@ -429,7 +421,7 @@ export default function HighEarnerPage({
           </h2>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            Join successful entrepreneurs who've maximized their financial potential with Aure's advanced tools.
+            
           </p>
 
           <button
