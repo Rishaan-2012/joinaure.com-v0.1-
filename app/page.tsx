@@ -14,6 +14,7 @@ import ReferralAgreement from "../legal-pages/referral-agreement"
 import Cookies from "../legal-pages/cookies"
 import SolopreneurPage from "../solopreneur-page"
 import HighEarnerPage from "../high-earner-page"
+import PricingPage from "../pricing-page"
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState<
@@ -23,6 +24,7 @@ export default function Page() {
     | "about"
     | "solopreneur"
     | "high-earner"
+    | "pricing"
     | "general-disclosures"
     | "terms-of-use"
     | "privacy-policy"
@@ -51,6 +53,10 @@ export default function Page() {
 
   const handleAboutClick = () => {
     setCurrentPage("about")
+  }
+
+  const handlePricingClick = () => {
+    setCurrentPage("pricing")
   }
 
   const handleFormSubmit = () => {
@@ -97,6 +103,18 @@ export default function Page() {
             onNavigateHome={handleNavigateHome}
             onContactClick={handleContactClick}
             onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "pricing":
+        return (
+          <PricingPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
           />
         )
       case "general-disclosures":
@@ -184,6 +202,7 @@ export default function Page() {
             onFooterLinkClick={handleFooterLinkClick}
             onSolopreneurClick={handleSolopreneurClick}
             onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
           />
         )
     }

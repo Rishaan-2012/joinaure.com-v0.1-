@@ -26,6 +26,7 @@ interface LandingPageProps {
   onFooterLinkClick: (page: string) => void
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
+  onPricingClick: () => void
 }
 
 export default function LandingPage({
@@ -35,6 +36,7 @@ export default function LandingPage({
   onFooterLinkClick,
   onSolopreneurClick,
   onHighEarnerClick,
+  onPricingClick,
 }: LandingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -279,6 +281,12 @@ export default function LandingPage({
                 </NavigationMenuList>
               </NavigationMenu>
               <button
+                onClick={onPricingClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Pricing
+              </button>
+              <button
                 onClick={onAboutClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
@@ -290,13 +298,11 @@ export default function LandingPage({
               >
                 Contact
               </button>
-              
             </div>
           </nav>
 
           {/* Right Side - Login & Join Waitlist Buttons - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
-            
             <Dialog open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen}>
               <DialogTrigger asChild>
                 <button className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md">
@@ -515,16 +521,6 @@ export default function LandingPage({
         </div>
       </section>
 
-      
-
-
-
-
-
-
-
-      
-
       {/* CTA Section */}
       <section className="py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -537,7 +533,7 @@ export default function LandingPage({
           </p>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            No hidden fees. No conflicts of interest. 
+            No hidden fees. No conflicts of interest.
           </p>
 
           <button
