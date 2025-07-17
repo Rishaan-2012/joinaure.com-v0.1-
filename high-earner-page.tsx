@@ -381,7 +381,7 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Fidiciury duty with a fixed flat fee</h3>
               <p className="text-gray-600 leading-relaxed">
-                One fee. No commissions. No percentages. No rising cost as your portfolio grows.As a fidicury, we legally and ethically obligated to act in the best interests of our clients at all times 
+                One fee. No commissions. No percentages. No rising cost as your portfolio grows. As a fidicury, we are legally and ethically obligated to act in the best interests of our clients at all times 
               </p>
             </div>
 
