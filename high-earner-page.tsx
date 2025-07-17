@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ChevronRight, ArrowLeft } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
 import {
@@ -21,6 +21,7 @@ interface HighEarnerPageProps {
   onBackClick: () => void
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
+  onPricingClick: () => void
 }
 
 export default function HighEarnerPage({
@@ -32,6 +33,7 @@ export default function HighEarnerPage({
   onBackClick,
   onSolopreneurClick,
   onHighEarnerClick,
+  onPricingClick,
 }: HighEarnerPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -218,16 +220,22 @@ export default function HighEarnerPage({
                 </NavigationMenuList>
               </NavigationMenu>
               <button
-                onClick={onContactClick}
+                onClick={onPricingClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                Pricing
               </button>
               <button
                 onClick={onAboutClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                About
+                About Us
+              </button>
+              <button
+                onClick={onContactClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Contact
               </button>
             </div>
           </nav>
@@ -262,15 +270,14 @@ export default function HighEarnerPage({
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          
-
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
               Built for <span className="text-[#d5b36e]">High Earners</span>
             </h1>
 
             <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-               Optimize your taxes, grow your wealth, and reduce concentrated stock exposure with sophisticated financial strategies 
+              Optimize your taxes, grow your wealth, and reduce concentrated stock exposure with sophisticated financial
+              strategies
             </p>
           </div>
         </div>
@@ -284,7 +291,7 @@ export default function HighEarnerPage({
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {/* Wealth Management */}
+            {/* Wealth Management */}
             <div className="scroll-animate text-center">
               <div className="bg-green-50 rounded-2xl p-8 mb-6">
                 <Image
@@ -299,7 +306,8 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Personalized Investment Management</h3>
               <p className="text-gray-600 leading-relaxed">
-                Investment planning and management tailored to your financial objectives, time horizon, risk tolerance, and liquidity needs
+                Investment planning and management tailored to your financial objectives, time horizon, risk tolerance,
+                and liquidity needs
               </p>
             </div>
             {/* Tax Optimization */}
@@ -317,11 +325,10 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Tax Optimization</h3>
               <p className="text-gray-600 leading-relaxed">
-                Proactive tax planning and strategies to minimize your tax liability and increase your retirement savings
+                Proactive tax planning and strategies to minimize your tax liability and increase your retirement
+                savings
               </p>
             </div>
-
-            
 
             {/* Business Scaling */}
             <div className="scroll-animate text-center">
@@ -338,15 +345,15 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Diversification and Covered Calls </h3>
               <p className="text-gray-600 leading-relaxed">
-                Turn stock concentration into income. Covered call strategies that aim to diversify your concentrated stock positions while also generating income.
+                Turn stock concentration into income. Covered call strategies that aim to diversify your concentrated
+                stock positions while also generating income.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-
-{/* Benefits Section */}
+      {/* Benefits Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
@@ -381,7 +388,8 @@ export default function HighEarnerPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Fidiciury duty with a fixed flat fee</h3>
               <p className="text-gray-600 leading-relaxed">
-                One fee. No commissions. No percentages. No rising cost as your portfolio grows. As a fidicury, we are legally and ethically obligated to act in the best interests of our clients at all times 
+                One fee. No commissions. No percentages. No rising cost as your portfolio grows. As a fidicury, we are
+                legally and ethically obligated to act in the best interests of our clients at all times
               </p>
             </div>
 
@@ -397,40 +405,17 @@ export default function HighEarnerPage({
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-normal text-gray-900 mb-4">Diversification for highly appreciated stocks </h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">
+                Diversification for highly appreciated stocks{" "}
+              </h3>
               <p className="text-gray-600 leading-relaxed">
-                We work with you to create customized covered call strategies that aim to diversify your concentrated stock positions while also generating income. You stay in control of your stocks without any lockup
+                We work with you to create customized covered call strategies that aim to diversify your concentrated
+                stock positions while also generating income. You stay in control of your stocks without any lockup
               </p>
             </div>
           </div>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">
@@ -439,9 +424,7 @@ export default function HighEarnerPage({
             Ready to optimize your wealth?
           </h2>
 
-          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            
-          </p>
+          <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto"></p>
 
           <button
             onClick={onContactClick}

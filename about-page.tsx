@@ -2,6 +2,13 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 import Footer from "./components/footer"
 
 interface AboutPageProps {
@@ -9,9 +16,20 @@ interface AboutPageProps {
   onNavigateHome: () => void
   onContactClick: () => void
   onFooterLinkClick: (page: string) => void
+  onSolopreneurClick: () => void
+  onHighEarnerClick: () => void
+  onPricingClick: () => void
 }
 
-export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick, onFooterLinkClick }: AboutPageProps) {
+export default function AboutPage({
+  onLogoClick,
+  onNavigateHome,
+  onContactClick,
+  onFooterLinkClick,
+  onSolopreneurClick,
+  onHighEarnerClick,
+  onPricingClick,
+}: AboutPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -84,6 +102,32 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
         .header-transition {
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        /* Hide all NavigationMenuTrigger arrows completely */
+        [data-radix-navigation-menu-trigger] svg,
+        [data-radix-navigation-menu-trigger]::after,
+        [data-radix-navigation-menu-trigger]::before,
+        .navigation-menu-trigger-arrow,
+        [data-radix-navigation-menu-trigger] [data-radix-navigation-menu-indicator] {
+          display: none !important;
+          visibility: hidden !important;
+        }
+
+        /* Ensure NavigationMenuTrigger matches regular buttons exactly */
+        [data-radix-navigation-menu-trigger] {
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          padding: 0.5rem 1rem !important;
+          border: none !important;
+          background: transparent !important;
+        }
+
+        /* Remove any default NavigationMenu styling that might affect size */
+        [data-radix-navigation-menu-root],
+        [data-radix-navigation-menu-list],
+        [data-radix-navigation-menu-item] {
+          font-size: inherit !important;
+        }
       `}</style>
 
       {/* Fixed Header - Always white for about page due to dark hero */}
@@ -111,19 +155,55 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           {/* Center Navigation - Absolutely centered to the page */}
           <nav className="absolute left-1/2 transform -translate-x-1/2">
             <div className="hidden md:flex items-center space-x-8">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-transparent data-[state=open]:bg-gray-50 data-[state=open]:text-gray-900"
+                      style={{ fontSize: "inherit", fontWeight: "inherit", lineHeight: "inherit" }}
+                    >
+                      Who We Serve
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 p-4">
+                        <div className="space-y-2">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault()
+                              onSolopreneurClick()
+                            }}
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
+                          >
+                            Solopreneur
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault()
+                              onHighEarnerClick()
+                            }}
+                            className="block w-full text-left text-gray-900 hover:text-gray-600 transition-colors py-2 px-3 rounded hover:bg-gray-50"
+                          >
+                            High Earner
+                          </button>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
               <button
-                onClick={onNavigateHome}
+                onClick={onPricingClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Company
+                Pricing
               </button>
+              <span className="text-gray-900 font-medium px-4 py-2">About Us</span>
               <button
                 onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
                 Contact
               </button>
-              <span className="text-gray-900 font-medium px-4 py-2">About</span>
             </div>
           </nav>
 
@@ -160,21 +240,16 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           <div className="max-w-4xl">
             <p className="scroll-animate text-sm font-medium text-gray-400 mb-6 tracking-wide uppercase">Our Mission</p>
 
-            <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight">
-              At Aure, we believe wealth is a tool for freedom 
-              <br/>
-              <br/>
-              
-                <p className="text-gray-600 leading-relaxed">
-                <h1 className="scroll-animate text-5xl md:text-4xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-              <span className="text-[#d5b36e]">Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on their own terms — all through a transparent flat-fee model with no AUM charges </span>
-            </h1>
-              </p>
-              
-            
+            <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight text-white">
+              At Aure, we believe wealth is a tool for freedom
             </h2>
 
-        
+            <h1 className="scroll-animate text-5xl md:text-4xl font-light mb-8 leading-tight tracking-tight">
+              <span className="text-[#d5b36e]">
+                Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on
+                their own terms — all through a transparent flat-fee model with no AUM charges
+              </span>
+            </h1>
           </div>
         </div>
       </section>
@@ -185,11 +260,9 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
             <div className="space-y-8">
-              <h1 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
+              <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
                 Smart wealth strategies for people building big futures
-              </h1>
-
-          
+              </h2>
 
               <button
                 onClick={onContactClick}
@@ -221,8 +294,6 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-6 leading-tight">
             Helping you grow, protect, and enjoy your wealth - your way
           </h2>
-
-      
 
           <button
             onClick={onContactClick}

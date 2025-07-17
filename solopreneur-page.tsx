@@ -21,6 +21,7 @@ interface SolopreneurPageProps {
   onBackClick: () => void
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
+  onPricingClick: () => void
 }
 
 export default function SolopreneurPage({
@@ -32,6 +33,7 @@ export default function SolopreneurPage({
   onBackClick,
   onSolopreneurClick,
   onHighEarnerClick,
+  onPricingClick,
 }: SolopreneurPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -218,16 +220,22 @@ export default function SolopreneurPage({
                 </NavigationMenuList>
               </NavigationMenu>
               <button
-                onClick={onContactClick}
+                onClick={onPricingClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                Pricing
               </button>
               <button
                 onClick={onAboutClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                About
+                About Us
+              </button>
+              <button
+                onClick={onContactClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Contact
               </button>
             </div>
           </nav>
@@ -277,16 +285,12 @@ export default function SolopreneurPage({
         </div>
       </section>
 
-
-
-
-
-
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-5xl md:text-4xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
-            Fees are 100% tax deductible, plus with the tax savings, <br/>Aure membership quite literally pays for itself
+            Fees are 100% tax deductible, plus with the tax savings, <br />
+            Aure membership quite literally pays for itself
           </h2>
 
           <div className="grid md:grid-cols-3 gap-12 mb-20">
@@ -305,7 +309,8 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Setup & Compliance</h3>
               <p className="text-gray-600 leading-relaxed">
-                We can help launch your new business with LLC regsitration, EIN and Business bank account to separate your personal and business finances
+                We can help launch your new business with LLC regsitration, EIN and Business bank account to separate
+                your personal and business finances
               </p>
             </div>
 
@@ -324,7 +329,8 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Financial Planning</h3>
               <p className="text-gray-600 leading-relaxed">
-                Personalized financial planning to help you take control of cash flow, manage business expenses, and build toward long-term goals 
+                Personalized financial planning to help you take control of cash flow, manage business expenses, and
+                build toward long-term goals
               </p>
             </div>
 
@@ -343,14 +349,10 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Investment Account</h3>
               <p className="text-gray-600 leading-relaxed">
-                We help you earn over 4% yield on idle cash by investing in low-risk, high-liquidity, state tax-exempt U.S. Treasuries or money market funds 
+                We help you earn over 4% yield on idle cash by investing in low-risk, high-liquidity, state tax-exempt
+                U.S. Treasuries or money market funds
               </p>
             </div>
-
-            
-          
-
-             
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
@@ -369,14 +371,11 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Solo 401K</h3>
               <p className="text-gray-600 leading-relaxed">
-                We help open your Solo 401(k) account to grow your retirement savings and reduce your taxes. Contribute both as an employee and an Employer.
+                We help open your Solo 401(k) account to grow your retirement savings and reduce your taxes. Contribute
+                both as an employee and an Employer.
               </p>
             </div>
-          
 
-            
-
-          
             {/* Payments & Tax */}
             <div className="scroll-animate text-center">
               <div className="bg-gray-100 rounded-2xl p-8 mb-6 h-80 flex items-center justify-center">
@@ -392,7 +391,8 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4"> Taxes </h3>
               <p className="text-gray-600 leading-relaxed">
-                We support you year round to get the most tax savings with smart tax saving strategies. We also support tax filing through our trusted partner
+                We support you year round to get the most tax savings with smart tax saving strategies. We also support
+                tax filing through our trusted partner
               </p>
             </div>
             {/* Cards & Cashback */}
@@ -410,38 +410,13 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing </h3>
               <p className="text-gray-600 leading-relaxed">
-               We can help you with Invoicing and allowing your clients to pay via credit cards, debit cards or digital wallets with low processing fees (through our trusted partners)
+                We can help you with Invoicing and allowing your clients to pay via credit cards, debit cards or digital
+                wallets with low processing fees (through our trusted partners)
               </p>
             </div>
           </div>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
 
       {/* Benefits Section */}
       <section className="py-20 bg-gray-50">
@@ -479,8 +454,8 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Everything in One Place</h3>
               <p className="text-gray-600 leading-relaxed">
-                Stop juggling multiple platforms and vendors. From business formation to investments, cash flow management and
-                compliance - we handle it all so you can focus on growing your business
+                Stop juggling multiple platforms and vendors. From business formation to investments, cash flow
+                management and compliance - we handle it all so you can focus on growing your business
               </p>
             </div>
 

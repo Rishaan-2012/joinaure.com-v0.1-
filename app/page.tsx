@@ -1,54 +1,40 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Head from "next/head"
-
+import { useState } from "react"
 import LandingPage from "../landing-page"
-import ContactPage from "../contact-page"
-import ThankYouPage from "../thank-you-page"
-import AboutPage from "../about-page"
-import GeneralDisclosures from "../legal-pages/general-disclosures"
-import TermsOfUse from "../legal-pages/terms-of-use"
-import PrivacyPolicy from "../legal-pages/privacy-policy"
-import ReferralAgreement from "../legal-pages/referral-agreement"
-import Cookies from "../legal-pages/cookies"
 import SolopreneurPage from "../solopreneur-page"
 import HighEarnerPage from "../high-earner-page"
+import ContactPage from "../contact-page"
+import AboutPage from "../about-page"
+import ThankYouPage from "../thank-you-page"
 import PricingPage from "../pricing-page"
+import PrivacyPolicyPage from "../legal-pages/privacy-policy"
+import TermsOfUsePage from "../legal-pages/terms-of-use"
+import CookiesPage from "../legal-pages/cookies"
+import GeneralDisclosuresPage from "../legal-pages/general-disclosures"
+import ReferralAgreementPage from "../legal-pages/referral-agreement"
 
-export default function Page() {
-  const [currentPage, setCurrentPage] = useState<
-    | "home"
-    | "contact"
-    | "thank-you"
-    | "about"
-    | "solopreneur"
-    | "high-earner"
-    | "pricing"
-    | "general-disclosures"
-    | "terms-of-use"
-    | "privacy-policy"
-    | "referral-agreement"
-    | "cookies"
-  >("home")
-
-  // Update URL path based on current page
-  useEffect(() => {
-    const path = currentPage === "home" ? "/" : `/${currentPage}`
-    window.history.replaceState({}, "", path)
-  }, [currentPage])
-
-  const handleContactClick = () => {
-    setCurrentPage("contact")
-  }
+export default function Home() {
+  const [currentPage, setCurrentPage] = useState("landing")
 
   const handleLogoClick = () => {
-    setCurrentPage("home")
-    window.scrollTo(0, 0)
+    setCurrentPage("landing")
   }
 
   const handleNavigateHome = () => {
-    setCurrentPage("home")
+    setCurrentPage("landing")
+  }
+
+  const handleSolopreneurClick = () => {
+    setCurrentPage("solopreneur")
+  }
+
+  const handleHighEarnerClick = () => {
+    setCurrentPage("high-earner")
+  }
+
+  const handleContactClick = () => {
+    setCurrentPage("contact")
   }
 
   const handleAboutClick = () => {
@@ -64,26 +50,49 @@ export default function Page() {
   }
 
   const handleFooterLinkClick = (page: string) => {
-    setCurrentPage(page as any)
-    window.scrollTo(0, 0)
-  }
-
-  const handleSolopreneurClick = () => {
-    setCurrentPage("solopreneur")
-  }
-
-  const handleHighEarnerClick = () => {
-    setCurrentPage("high-earner")
+    setCurrentPage(page)
   }
 
   const renderPage = () => {
     switch (currentPage) {
-      case "thank-you":
+      case "landing":
         return (
-          <ThankYouPage
+          <LandingPage
+            onLogoClick={handleLogoClick}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onPricingClick={handlePricingClick}
+            onFooterLinkClick={handleFooterLinkClick}
+          />
+        )
+      case "solopreneur":
+        return (
+          <SolopreneurPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
+            onBackClick={() => setCurrentPage("landing")}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
+          />
+        )
+      case "high-earner":
+        return (
+          <HighEarnerPage
+            onLogoClick={handleLogoClick}
+            onNavigateHome={handleNavigateHome}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
+            onFooterLinkClick={handleFooterLinkClick}
+            onBackClick={() => setCurrentPage("landing")}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
           />
         )
       case "contact":
@@ -94,6 +103,9 @@ export default function Page() {
             onFormSubmit={handleFormSubmit}
             onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
           />
         )
       case "about":
@@ -103,6 +115,9 @@ export default function Page() {
             onNavigateHome={handleNavigateHome}
             onContactClick={handleContactClick}
             onFooterLinkClick={handleFooterLinkClick}
+            onSolopreneurClick={handleSolopreneurClick}
+            onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
           />
         )
       case "pricing":
@@ -115,105 +130,71 @@ export default function Page() {
             onFooterLinkClick={handleFooterLinkClick}
             onSolopreneurClick={handleSolopreneurClick}
             onHighEarnerClick={handleHighEarnerClick}
+            onPricingClick={handlePricingClick}
           />
         )
-      case "general-disclosures":
+      case "thank-you":
         return (
-          <GeneralDisclosures
+          <ThankYouPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
-            onFooterLinkClick={handleFooterLinkClick}
-          />
-        )
-      case "terms-of-use":
-        return (
-          <TermsOfUse
-            onLogoClick={handleLogoClick}
-            onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
           />
         )
       case "privacy-policy":
         return (
-          <PrivacyPolicy
+          <PrivacyPolicyPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
           />
         )
-      case "referral-agreement":
+      case "terms-of-use":
         return (
-          <ReferralAgreement
+          <TermsOfUsePage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
           />
         )
       case "cookies":
         return (
-          <Cookies
+          <CookiesPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
           />
         )
-      case "solopreneur":
+      case "general-disclosures":
         return (
-          <SolopreneurPage
+          <GeneralDisclosuresPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
-            onBackClick={handleNavigateHome}
-            onSolopreneurClick={handleSolopreneurClick}
-            onHighEarnerClick={handleHighEarnerClick}
           />
         )
-      case "high-earner":
+      case "referral-agreement":
         return (
-          <HighEarnerPage
+          <ReferralAgreementPage
             onLogoClick={handleLogoClick}
             onNavigateHome={handleNavigateHome}
-            onContactClick={handleContactClick}
-            onAboutClick={handleAboutClick}
             onFooterLinkClick={handleFooterLinkClick}
-            onBackClick={handleNavigateHome}
-            onSolopreneurClick={handleSolopreneurClick}
-            onHighEarnerClick={handleHighEarnerClick}
           />
         )
       default:
         return (
           <LandingPage
-            onContactClick={handleContactClick}
             onLogoClick={handleLogoClick}
-            onAboutClick={handleAboutClick}
-            onFooterLinkClick={handleFooterLinkClick}
             onSolopreneurClick={handleSolopreneurClick}
             onHighEarnerClick={handleHighEarnerClick}
+            onContactClick={handleContactClick}
+            onAboutClick={handleAboutClick}
             onPricingClick={handlePricingClick}
+            onFooterLinkClick={handleFooterLinkClick}
           />
         )
     }
   }
 
-  return (
-    <>
-      <Head>
-        <title>Aure – Modern Money Management</title>
-      </Head>
-      {renderPage()}
-    </>
-  )
+  return <div className="min-h-screen">{renderPage()}</div>
 }

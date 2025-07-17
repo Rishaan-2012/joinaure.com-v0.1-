@@ -20,6 +20,7 @@ interface PricingPageProps {
   onFooterLinkClick: (page: string) => void
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
+  onPricingClick: () => void
 }
 
 export default function PricingPage({
@@ -30,6 +31,7 @@ export default function PricingPage({
   onFooterLinkClick,
   onSolopreneurClick,
   onHighEarnerClick,
+  onPricingClick,
 }: PricingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -214,12 +216,7 @@ export default function PricingPage({
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              <button
-                onClick={onNavigateHome}
-                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
-              >
-                Pricing
-              </button>
+              <span className="text-gray-900 font-medium px-4 py-2">Pricing</span>
               <button
                 onClick={onAboutClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
