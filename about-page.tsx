@@ -160,16 +160,13 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
           <div className="max-w-4xl">
             <p className="scroll-animate text-sm font-medium text-gray-400 mb-6 tracking-wide uppercase">Our Mission</p>
 
-            <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-8 leading-tight">
-              Aure is leading the future of AI driven finance.
+            <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight">
+              At Aure, we believe wealth is a tool for freedom. 
+              <br/> <br/>
+              We help solopreneurs and high-income professionals grow lasting wealth and live life on their own terms — all through a transparent flat-fee model with no AUM charges
             </h2>
 
-            <p className="scroll-animate text-gray-300 text-lg leading-relaxed">
-              Today, Aure is building a smarter, founder-first approach to financing—helping modern businesses access
-              capital without giving up equity or taking on rigid debt. Tomorrow, we aim to become the financial
-              operating system for ambitious companies. With Aure, founders will be able to borrow, save, invest, and
-              manage cash flow in one seamless platform—built for transparency, intelligence, and long-term growth.
-            </p>
+        
           </div>
         </div>
       </section>
@@ -181,13 +178,10 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
             {/* Left Side - Content */}
             <div className="space-y-8">
               <h1 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
-                Built for modern businesses
+                Smart wealth strategies for people building big futures
               </h1>
 
-              <p className="scroll-animate text-gray-600 text-lg leading-relaxed max-w-lg">
-                Aure delivers smart financial infrastructure for founders and operators. Manage cash, earn more on idle
-                funds, and access tailored capital solutions—all in one seamless platform.
-              </p>
+          
 
               <button
                 onClick={onContactClick}
@@ -217,12 +211,10 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-6 leading-tight">
-            Join forward-thinking founders
+            Helping you grow, protect, and enjoy your wealth - your way
           </h2>
 
-          <p className="scroll-animate text-3xl md:text-4xl font-normal mb-12 leading-tight text-[#d5b36e]">
-            using Aure to run smarter, faster business finance
-          </p>
+      
 
           <button
             onClick={onContactClick}
