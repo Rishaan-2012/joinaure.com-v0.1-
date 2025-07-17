@@ -345,66 +345,59 @@ export default function HighEarnerPage({
         </div>
       </section>
 
-      {/* Benefits Section */}
+
+{/* Benefits Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Why high earners choose Aure
+            Why High Earners love Aure
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Maximize Returns */}
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            {/* Reason 1 */}
             <div className="scroll-animate text-center">
-              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
-                <Image
-                  src="/images/save-money-dashboard.png"
-                  alt="Maximize Returns"
-                  width={200}
-                  height={150}
-                  className="w-full h-32 object-contain rounded-lg mx-auto"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                  />
+                </svg>
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Tax-Aware Investment Management</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Tax-Aware Investment Management</h3>
               <p className="text-gray-600 leading-relaxed">
                 Active portfolio management that adapts to macroeconomic conditions and minimizes tax drag
               </p>
             </div>
 
-            {/* Minimize Taxes */}
+            {/* Reason 2 */}
             <div className="scroll-animate text-center">
-              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
-                <Image
-                  src="/images/user-profile.png"
-                  alt="Minimize Taxes"
-                  width={200}
-                  height={150}
-                  className="w-full h-32 object-contain rounded-lg mx-auto"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Fidiciury duty with fixed flat fee Taxes</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Fidiciury duty with a fixed flat fee</h3>
               <p className="text-gray-600 leading-relaxed">
                 One fee. No commissions. No percentages. No rising cost as your portfolio grows.As a fidicury, we legally and ethically obligated to act in the best interests of our clients at all times 
               </p>
             </div>
 
-            {/* Scale Globally */}
+            {/* Reason 3 */}
             <div className="scroll-animate text-center">
-              <div className="bg-white rounded-2xl p-8 mb-6 shadow-sm">
-                <Image
-                  src="/images/global-icon.png"
-                  alt="Scale Globally"
-                  width={200}
-                  height={150}
-                  className="w-full h-32 object-contain rounded-lg mx-auto"
-                  quality={100}
-                  style={{ imageRendering: "crisp-edges" }}
-                />
+              <div className="w-16 h-16 bg-[#d5b36e] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
               </div>
-              <h3 className="text-xl font-medium text-gray-900 mb-4">Diversification and Tax Optimization for highly appreciated stocks </h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-4">Diversification for highly appreciated stocks </h3>
               <p className="text-gray-600 leading-relaxed">
                 We work with you to create customized covered call strategies that aim to diversify your concentrated stock positions while also generating income. You stay in control of your stocks without any lockup
               </p>
@@ -412,6 +405,32 @@ export default function HighEarnerPage({
           </div>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">
