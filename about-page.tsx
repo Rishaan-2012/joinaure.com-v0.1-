@@ -161,9 +161,17 @@ export default function AboutPage({ onLogoClick, onNavigateHome, onContactClick,
             <p className="scroll-animate text-sm font-medium text-gray-400 mb-6 tracking-wide uppercase">Our Mission</p>
 
             <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight">
-              At Aure, we believe wealth is a tool for freedom. 
-              <br/> <br/>
-              We help solopreneurs and high-income professionals grow lasting wealth and live life on their own terms — all through a transparent flat-fee model with no AUM charges
+              At Aure, we believe wealth is a tool for freedom 
+              <br/>
+              <br/>
+              
+                <p className="text-gray-600 leading-relaxed">
+                <h1 className="scroll-animate text-5xl md:text-4xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+              <span className="text-[#d5b36e]">Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on their own terms — all through a transparent flat-fee model with no AUM charges </span>
+            </h1>
+              </p>
+              
+            
             </h2>
 
         
