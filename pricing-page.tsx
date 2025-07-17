@@ -247,10 +247,10 @@ export default function PricingPage({
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-            Simple, Transparent Pricing
+             $12,000 Flat Fee Per Year
           </h1>
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-            No hidden fees. No commissions. Just straightforward pricing that aligns our interests with yours.
+            Simple, Transparent Pricing. No AUM percentage fees. No hidden fees. No commissions. A flat fee minimizes conflicts of interest, meaning all of our advice is tailored to you and your life.
           </p>
         </div>
       </section>
@@ -268,8 +268,8 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-2 leading-tight">Solopreneur Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold text-gray-900">$499</span>
-                <span className="text-gray-600 pb-1">/month</span>
+                <span className="text-4xl font-bold text-gray-900">$3000</span>
+                <span className="text-gray-600 pb-1">Quarterly</span>
               </div>
 
               <p className="text-gray-600 mb-8 leading-relaxed">
@@ -317,8 +317,8 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal mb-2 leading-tight">High Earner Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold">$799</span>
-                <span className="text-white text-opacity-75 pb-1">/month</span>
+                <span className="text-4xl font-bold">$3000</span>
+                <span className="text-white text-opacity-75 pb-1">/Quarterly</span>
               </div>
 
               <p className="text-white text-opacity-75 mb-8 leading-relaxed">
