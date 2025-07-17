@@ -343,7 +343,7 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Investment Account</h3>
               <p className="text-gray-600 leading-relaxed">
-                We help you earn a much higher yield than any other bank accounts by investing your idle cash into low risk Treasuries or Money Market funds. 
+                We help you earn over 4% yield on idle cash by investing in low-risk, high-liquidity, state tax-exempt U.S. Treasuries or money market funds 
               </p>
             </div>
 
