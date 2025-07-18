@@ -250,7 +250,7 @@ export default function PricingPage({
              $12,000 Flat Fee Per Year
           </h1>
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-            Simple, Transparent Pricing. No AUM percentage fees. No hidden fees. No commissions. A flat fee minimizes conflicts of interest, meaning all of our advice is tailored to you and your life.
+            Simple, Transparent Pricing. No AUM percentage fees. No hidden fees. No commissions. <br/>A flat fee minimizes conflicts of interest, meaning all of our advice is tailored to you and your life.
           </p>
         </div>
       </section>
@@ -268,7 +268,7 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-2 leading-tight">Solopreneur Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold text-gray-900">$1000/month</span>
+                <span className="text-3xl font-bold text-gray-900">$3000</span>
                 <span className="text-gray-600 pb-1">billed quarterly</span>
               </div>
 
@@ -311,7 +311,15 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Quarterly tax estimates and filing by a licensed tax partner</span>
+                  <span className="text-gray-700">Quarterly tax estimates</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Business and Individual Tax Prep and filing by a licensed tax partner</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Invoicing and Payments for your business (Cards, ACH)</span>
                 </div>
               </div>
 
@@ -333,7 +341,7 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal mb-2 leading-tight">High Earner Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold">$1000/month</span>
+                <span className="text-3xl font-bold">$3000</span>
                 <span className="text-white text-opacity-75 pb-1">billed quarterly</span>
               </div>
 
@@ -342,6 +350,14 @@ export default function PricingPage({
               </p>
 
               <div className="space-y-4 mb-8">
+               <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Personalized and commission-free approach</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Fiduciary</span>
+                </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Portfolio Analysis & Recommendations</span>
@@ -377,7 +393,7 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Tax filing by a licensed tax partner</span>
+                  <span className="text-white text-opacity-90">Federal and State Tax filing by a licensed tax partner</span>
                 </div>
               </div>
 
@@ -402,18 +418,16 @@ export default function PricingPage({
 
           <div className="space-y-8">
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">What's included in the monthly fee?</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
               <p className="text-gray-600">
-                Our monthly fee includes comprehensive wealth management services, including investment management,
-                financial planning, tax optimization, retirement planning, and regular strategy sessions. There are no
-                hidden fees or commissions.
+                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving. Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100% of the time. 
               </p>
             </div>
 
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
               <p className="text-gray-600">
-                We don't have strict asset minimums. Our services are designed for solopreneurs and high-income
+                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and high-income
                 professionals who value comprehensive financial planning and wealth management, regardless of their
                 current asset level.
               </p>
@@ -428,10 +442,15 @@ export default function PricingPage({
             </div>
 
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">Are you a fiduciary?</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
               <p className="text-gray-600">
-                Yes, we are registered investment advisors and act as fiduciaries 100% of the time. This means we are
-                legally obligated to act in your best interest and provide advice that puts your needs first.
+               We specialize in serving solopreneurs and high-income professionals, and we deeply understand the financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to institutional-grade tools and the best available rates — while keeping you in full control of your money at all times.
+              </p>
+            </div>
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
+              <p className="text-gray-600">
+                While you may feel confident handling financial tasks independently, Aure provides tailored advice, expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances, ensuring your long-term financial wellness and peace of mind.
               </p>
             </div>
           </div>
