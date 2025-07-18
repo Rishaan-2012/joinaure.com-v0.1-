@@ -268,8 +268,8 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal text-gray-900 mb-2 leading-tight">Solopreneur Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold text-gray-900">$3000</span>
-                <span className="text-gray-600 pb-1">Quarterly</span>
+                <span className="text-4xl font-bold text-gray-900">$1000/month</span>
+                <span className="text-gray-600 pb-1">billed quarterly</span>
               </div>
 
               <p className="text-gray-600 mb-8 leading-relaxed">
@@ -279,11 +279,23 @@ export default function PricingPage({
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Personalized investment strategy</span>
+                  <span className="text-gray-700">100% tax deductible fees </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Tax optimization for your business</span>
+                  <span className="text-gray-700">Business setup including LLC creation, EIN, Business bank account</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Comprehensive, personalized financial planning for your business </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Over 4% APR with US Treasuries (U.S. government-backed)</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Investment in low-risk, high-liquidity money market funds</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
@@ -291,11 +303,11 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Quarterly strategy sessions</span>
+                  <span className="text-gray-700">Cashflow planning, business deductions and Bookkeeping support</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Business succession planning</span>
+                  <span className="text-gray-700">Tax planning, Quarterly tax estimates and filing by a license tax partner</span>
                 </div>
               </div>
 
@@ -317,8 +329,8 @@ export default function PricingPage({
               <h3 className="text-3xl font-normal mb-2 leading-tight">High Earner Plan</h3>
 
               <div className="flex items-end gap-2 mb-6">
-                <span className="text-4xl font-bold">$3000</span>
-                <span className="text-white text-opacity-75 pb-1">/Quarterly</span>
+                <span className="text-4xl font-bold">$1000/month</span>
+                <span className="text-white text-opacity-75 pb-1">billed quarterly</span>
               </div>
 
               <p className="text-white text-opacity-75 mb-8 leading-relaxed">
@@ -328,23 +340,40 @@ export default function PricingPage({
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Advanced tax planning strategies</span>
+                  <span className="text-white text-opacity-90">Portfolio Analysis & Recommendations</span>
+                </div>
+                 
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Risk Profile Assessment</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Equity compensation optimization</span>
+                  <span className="text-white text-opacity-90">Portfolio management</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Executive benefits analysis</span>
+                  <span className="text-white text-opacity-90"> over 4% APY on Cash Savings </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Monthly strategy sessions</span>
+                  <span className="text-white text-opacity-90">Tax Loss Harvesting</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Estate planning coordination</span>
+                  <span className="text-white text-opacity-90">Proactive Tax planning</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Retirement planning</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Covered call strategy for concentrated stock positions</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Tax filing by a licensed tax partner</span>
                 </div>
               </div>
 
