@@ -256,8 +256,8 @@ export default function AboutPage({
             {/* Left Side - Content */}
             <div className="space-y-8">
               <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
-              Transparent Wealth for the Self Made
-                {/* Smart wealth strategies for people building big futures */}
+              {/*Transparent Wealth for the Self Made */}
+                Smart wealth strategies for people building big futures
               </h2>
 
               <button
