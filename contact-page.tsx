@@ -255,32 +255,10 @@ export default function ContactPage({
             <div className={`space-y-6 page-animate ${isLoaded ? "loaded" : ""}`}>
               <h1 className="text-4xl font-normal text-gray-900 leading-tight">Get in touch</h1>
               <p className="text-gray-600 leading-relaxed max-w-lg">
-                Running a business is hard enough. Don't lose momentum chasing capital when you could be building what
-                matters. Aure gives you the modern financing support you need.
+                Make your money work harder — with Aure's flat-fee, commission-free approach.
               </p>
 
-              {/* Additional content to make page taller */}
-              <div className="space-y-4 pt-8">
-                <h3 className="text-xl font-medium text-gray-900">Why choose Aure?</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start">
-                    <span className="text-[#d5b36e] mr-3 mt-1">•</span>
-                    <span>Fast response times - typically within 24 hours</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#d5b36e] mr-3 mt-1">•</span>
-                    <span>Personalized financial solutions for your business</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#d5b36e] mr-3 mt-1">•</span>
-                    <span>Expert guidance from experienced financial professionals</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#d5b36e] mr-3 mt-1">•</span>
-                    <span>No hidden fees or surprise charges</span>
-                  </li>
-                </ul>
-              </div>
+              
 
               <div className="pt-6">
                 <h3 className="text-xl font-medium text-gray-900 mb-3">Ready to get started?</h3>
