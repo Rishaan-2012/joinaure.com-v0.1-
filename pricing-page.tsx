@@ -303,11 +303,15 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Cashflow planning, business deductions and Bookkeeping support</span>
+                  <span className="text-gray-700">Cashflow planning and Bookkeeping support</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Tax planning, Quarterly tax estimates and filing by a license tax partner</span>
+                  <span className="text-gray-700">Proactive Tax planning with business deductions</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Quarterly tax estimates and filing by a licensed tax partner</span>
                 </div>
               </div>
 
