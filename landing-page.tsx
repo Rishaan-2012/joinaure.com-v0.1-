@@ -452,11 +452,6 @@ export default function LandingPage({
             Solopreneurs and High Earners
           </h1>
 
-
-
-
-    
-
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
             Grow and protect your net worth with personalized investment, retirement, and tax strategies
           </p>
@@ -479,7 +474,7 @@ export default function LandingPage({
             </button>
           </div>
         </div>
-      </section>
+  </section>
 
       {/* Features Section */}
       <section className="py-16 bg-white">
