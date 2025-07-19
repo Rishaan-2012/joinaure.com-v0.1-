@@ -444,15 +444,15 @@ export default function LandingPage({
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gray-50">
+      <section className="h-screen flex items-center justify-center bg-gray-50 pt-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+          <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
             Modern Wealth Management for
             <br />
             Solopreneurs and High Earners
           </h1>
 
-          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
             Grow and protect your net worth with personalized investment, retirement, and tax strategies
           </p>
 
