@@ -368,7 +368,7 @@ export default function PricingPage({
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">
-                    Personalized, commission-free approach from Fiduciary
+                    Highly Personalized, commission-free approach from Fiduciary
                   </span>
                 </div>
 
@@ -451,8 +451,8 @@ export default function PricingPage({
               <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
               <p className="text-gray-600">
                 We don't have strict asset minimums. Our services are specifically designed for solopreneurs and
-                high-income professionals who value comprehensive financial planning and wealth management, regardless
-                of their current asset level.
+                high-income professionals who value personalized and transparent wealth management, regardless
+                of their current asset level.Our clients maintain full control over their assets at all times, without any restrictions.
               </p>
             </div>
 
@@ -469,7 +469,7 @@ export default function PricingPage({
               <p className="text-gray-600">
                 We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
                 financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
-                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging advanced technology, we eliminate percentage based fees — saving you more as your wealth grows.We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
                 institutional-grade tools and the best available rates — while keeping you in full control of your money
                 at all times.
               </p>
