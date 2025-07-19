@@ -447,8 +447,7 @@ export default function SolopreneurPage({
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Save Money and Stay Compliant</h3>
               <p className="text-gray-600 leading-relaxed">
-                Our membership fees are 100% tax deductible as a business expense. Plus, with proper business structure
-                and Solo 401K contributions, you'll save thousands in taxes annually.
+                Our membership fees are 100% tax deductible as a business expense. Plus, with Solo 401K contributions, you'll save thousands in taxes annually. We provide year round support for business compliance
               </p>
             </div>
 
@@ -462,7 +461,7 @@ export default function SolopreneurPage({
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Everything in One Place</h3>
               <p className="text-gray-600 leading-relaxed">
                 Stop juggling multiple platforms and vendors. From business formation to investments, cash flow
-                management and compliance - we handle it all so you can focus on growing your business
+                management, Taxes and compliance - we handle it all so you can focus on growing your business
               </p>
             </div>
 

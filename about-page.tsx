@@ -242,16 +242,22 @@ export default function AboutPage({
           <div className="max-w-4xl">
             <p className="scroll-animate text-sm font-medium text-gray-400 mb-6 tracking-wide uppercase">Our Mission</p>
 
-            <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight text-white">
+            <h2 className="scroll-animate text-4xl md:text-3xl font-normal mb-8 leading-tight text-white">
               At Aure, we believe wealth is a tool for freedom
             </h2>
 
-            <h1 className="scroll-animate text-5xl md:text-4xl font-light mb-8 leading-tight tracking-tight">
+            <h1 className="scroll-animate text-4xl md:text-4xl font-light mb-8 leading-tight tracking-tight">
               <span className="text-[#d5b36e]">
                 Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on
                 their own terms — all through a transparent flat-fee model with no AUM charges
               </span>
             </h1>
+             <h2 className="scroll-animate text-3xl md:text-3xl font-normal mb-8 leading-tight text-white">
+                          Aure leverages cutting-edge technology and AI to streamline wealth management and deliver personalized strategies at scale.
+By operating efficiently, we eliminate percentage-based fees and offer a simple, flat-fee model — saving you more as your wealth grows.
+            </h2>
+
+
           </div>
         </div>
       </section>
