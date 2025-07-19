@@ -248,8 +248,7 @@ export default function AboutPage({
 
             <h1 className="scroll-animate text-4xl md:text-4xl font-light mb-8 leading-tight tracking-tight">
               <span className="text-[#d5b36e]">
-                Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on
-                their own terms — all through a transparent flat-fee model with no AUM charges
+               Aure's mission is to help self-made professionals to build financial freedom and live life on their own terms — all through a transparent, flat-fee approach.
               </span>
             </h1>
              <h2 className="scroll-animate text-3xl md:text-3xl font-normal mb-8 leading-tight text-white">
