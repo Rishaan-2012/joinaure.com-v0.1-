@@ -291,7 +291,7 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Over 4% APR with US Treasuries (U.S. government-backed)</span>
+                  <span className="text-gray-700">Over 4% APY with US Treasuries (U.S. government-backed)</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
@@ -352,7 +352,7 @@ export default function PricingPage({
               <div className="space-y-4 mb-8">
                <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Personalized and commission-free approach from Fiduciary</span>
+                  <span className="text-white text-opacity-90">Personalized,  commission-free approach from Fiduciary</span>
                 </div>
                 
                 <div className="flex items-start gap-3">
