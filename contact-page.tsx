@@ -22,6 +22,7 @@ interface ContactPageProps {
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
   onPricingClick: () => void
+  onLearnClick: () => void
 }
 
 export default function ContactPage({
@@ -33,6 +34,7 @@ export default function ContactPage({
   onSolopreneurClick,
   onHighEarnerClick,
   onPricingClick,
+  onLearnClick,
 }: ContactPageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,7 +69,7 @@ export default function ContactPage({
     const formData = new FormData(form)
 
     try {
-      const response = await fetch("https://formspree.io/f/xqabvrow", {
+      const response = await fetch("https://formsp.io/f/xdkdndnd", {
         method: "POST",
         body: formData,
         headers: {
@@ -80,24 +82,25 @@ export default function ContactPage({
         form.reset()
         onFormSubmit()
       } else {
-        console.error("Submission failed")
+        throw new Error("Form submission failed")
       }
-    } catch (err) {
-      console.error("Unexpected error", err)
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      alert("There was an error submitting your message. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-white">
       <style jsx>{`
-        .page-animate {
+        .fade-in {
           opacity: 0;
-          transform: translateY(16px);
-          transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(20px);
+          transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .page-animate.loaded {
+        .fade-in.loaded {
           opacity: 1;
           transform: translateY(0);
         }
@@ -105,6 +108,12 @@ export default function ContactPage({
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .button-hover:hover {
+          transform: scale(1.05);
+        }
+        button {
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        button:hover {
           transform: scale(1.05);
         }
         .logo-hover {
@@ -144,10 +153,10 @@ export default function ContactPage({
         }
       `}</style>
 
-      {/* Header */}
+      {/* Fixed Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 h-24 header-transition ${
-          isScrolled ? "bg-white shadow-lg" : "bg-gray-100"
+          isScrolled ? "bg-white shadow-lg" : "bg-gray-50"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-full relative flex items-center">
@@ -221,15 +230,26 @@ export default function ContactPage({
               >
                 About Us
               </button>
+              <button
+                onClick={onLearnClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Learn
+              </button>
               <span className="text-gray-900 font-medium px-4 py-2">Contact</span>
             </div>
           </nav>
 
-          {/* Right Side - Login & Get Started Buttons - Positioned absolutely on the right */}
+          {/* Right Side - Login & Join Waitlist Buttons - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
-            
             <button
               onClick={() => window.open("https://aurefinancial.com", "_blank")}
+              className="text-gray-700 hover:text-gray-900 font-medium transition-all duration-200 hover:scale-105 px-4 py-2"
+            >
+              Log in
+            </button>
+            <button
+              onClick={() => window.open("https://aurefinancial.com/waitlist", "_blank")}
               className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
               Join Waitlist
@@ -247,97 +267,176 @@ export default function ContactPage({
         </div>
       </header>
 
-      {/* Contact Content */}
-      <div className="flex-1 pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left Side */}
-            <div className={`space-y-6 page-animate ${isLoaded ? "loaded" : ""}`}>
-              <h1 className="text-4xl font-normal text-gray-900 leading-tight">Get in touch</h1>
-              <p className="text-gray-600 leading-relaxed max-w-lg">
-                Make your money work harder — with Aure's flat-fee, commission-free approach.
+      {/* Contact Section */}
+      <section className="pt-32 pb-20 bg-gray-50 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Content */}
+            <div className={`fade-in ${isLoaded ? "loaded" : ""}`} style={{ transitionDelay: "0.1s" }}>
+              <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+                Let's talk about your financial future
+              </h1>
+
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                Ready to take control of your wealth? Schedule a free consultation to discuss your goals and see how
+                Aure can help you achieve them.
               </p>
 
-              
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#d5b36e] rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900">Email</h3>
+                    <p className="text-gray-600">hello@aurefinancial.com</p>
+                  </div>
+                </div>
 
-              <div className="pt-6">
-                <h3 className="text-xl font-medium text-gray-900 mb-3">Ready to get started?</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Fill out the form and our team will reach out to discuss how Aure can help streamline your business
-                  finances and accelerate your growth.
-                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#d5b36e] rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900">Response Time</h3>
+                    <p className="text-gray-600">Within 24 hours</p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Right Side - Form */}
-            <div className={`bg-white rounded-2xl shadow-lg p-8 page-animate ${isLoaded ? "loaded" : ""}`}>
-              <p className="text-gray-600 mb-6 text-sm">
-                Please fill out the form below and we'll get back to you as soon as possible.
-              </p>
+            <div className={`fade-in ${isLoaded ? "loaded" : ""}`} style={{ transitionDelay: "0.3s" }}>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                {success ? (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-medium text-gray-900 mb-2">Message Sent!</h3>
+                    <p className="text-gray-600">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  </div>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-medium text-gray-900 mb-6">Send us a message</h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
-                  />
-                </div>
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="Company Name"
-                  required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm"
-                />
-                <textarea
-                  name="description"
-                  placeholder="Tell us about your business and how we can help"
-                  rows={4}
-                  required
-                  className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm resize-none"
-                />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="button-hover bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-lg font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed w-full"
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                            First Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                            Last Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
+                          />
+                        </div>
+                      </div>
 
-                {success && (
-                  <p className="text-green-600 text-sm pt-2">
-                    ✅ Your message was sent successfully. We'll get back to you shortly.
-                  </p>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                          Subject *
+                        </label>
+                        <select
+                          id="subject"
+                          name="subject"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
+                        >
+                          <option value="">Select a topic</option>
+                          <option value="consultation">Schedule a Consultation</option>
+                          <option value="solopreneur">Solopreneur Services</option>
+                          <option value="high-earner">High Earner Services</option>
+                          <option value="pricing">Pricing Questions</option>
+                          <option value="general">General Inquiry</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                          Message *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={4}
+                          required
+                          placeholder="Tell us about your financial goals and how we can help..."
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200 resize-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                      </button>
+                    </form>
+                  </>
                 )}
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
       <Footer onFooterLinkClick={onFooterLinkClick} />

@@ -21,6 +21,7 @@ interface PricingPageProps {
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
   onPricingClick: () => void
+  onLearnClick: () => void
 }
 
 export default function PricingPage({
@@ -32,6 +33,7 @@ export default function PricingPage({
   onSolopreneurClick,
   onHighEarnerClick,
   onPricingClick,
+  onLearnClick,
 }: PricingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -224,6 +226,12 @@ export default function PricingPage({
                 About Us
               </button>
               <button
+                onClick={onLearnClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                Learn
+              </button>
+              <button
                 onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
@@ -247,10 +255,11 @@ export default function PricingPage({
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-             $12,000 Flat Fee Per Year
+            $12,000 Flat Fee Per Year
           </h1>
           <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-            Simple, Transparent Pricing. No AUM percentage fees. No hidden fees. No commissions. <br/>A flat fee minimizes conflicts of interest, meaning all of our advice is tailored to you and your life.
+            Simple, Transparent Pricing. No AUM percentage fees. No hidden fees. No commissions. <br />A flat fee
+            minimizes conflicts of interest, meaning all of our advice is tailored to you and your life.
           </p>
         </div>
       </section>
@@ -283,11 +292,15 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Business setup including LLC creation, EIN, Business bank account</span>
+                  <span className="text-gray-700">
+                    Business setup including LLC creation, EIN, Business bank account
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Comprehensive, personalized financial planning for your business </span>
+                  <span className="text-gray-700">
+                    Comprehensive, personalized financial planning for your business{" "}
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
@@ -315,7 +328,9 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Business and Individual Tax Prep and filing by a licensed tax partner</span>
+                  <span className="text-gray-700">
+                    Business and Individual Tax Prep and filing by a licensed tax partner
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
@@ -350,16 +365,18 @@ export default function PricingPage({
               </p>
 
               <div className="space-y-4 mb-8">
-               <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Personalized,  commission-free approach from Fiduciary</span>
+                  <span className="text-white text-opacity-90">
+                    Personalized, commission-free approach from Fiduciary
+                  </span>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Portfolio Analysis & Recommendations</span>
                 </div>
-                 
+
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Risk Profile Assessment</span>
@@ -387,16 +404,16 @@ export default function PricingPage({
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Covered call strategy for income generation</span>
-                
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Diversification for concentrated positions</span>
-                
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-white text-opacity-90">Federal and State Tax filing by a licensed tax partner</span>
+                  <span className="text-white text-opacity-90">
+                    Federal and State Tax filing by a licensed tax partner
+                  </span>
                 </div>
               </div>
 
@@ -423,16 +440,19 @@ export default function PricingPage({
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
               <p className="text-gray-600">
-                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving. Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100% of the time. 
+                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving.
+                Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each
+                person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100%
+                of the time.
               </p>
             </div>
 
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
               <p className="text-gray-600">
-                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and high-income
-                professionals who value comprehensive financial planning and wealth management, regardless of their
-                current asset level.
+                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and
+                high-income professionals who value comprehensive financial planning and wealth management, regardless
+                of their current asset level.
               </p>
             </div>
 
@@ -447,13 +467,20 @@ export default function PricingPage({
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
               <p className="text-gray-600">
-               We specialize in serving solopreneurs and high-income professionals, and we deeply understand the financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to institutional-grade tools and the best available rates — while keeping you in full control of your money at all times.
+                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
+                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. We
+                have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                institutional-grade tools and the best available rates — while keeping you in full control of your money
+                at all times.
               </p>
             </div>
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
               <p className="text-gray-600">
-                While you may feel confident handling financial tasks independently, Aure provides tailored advice, expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances, ensuring your long-term financial wellness and peace of mind.
+                While you may feel confident handling financial tasks independently, Aure provides tailored advice,
+                expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances,
+                ensuring your long-term financial wellness and peace of mind.
               </p>
             </div>
           </div>

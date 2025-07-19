@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/navigation-menu"
 import Footer from "./components/footer"
 
-interface AboutPageProps {
+interface LearnPageProps {
   onLogoClick: () => void
   onNavigateHome: () => void
   onContactClick: () => void
+  onAboutClick: () => void
   onFooterLinkClick: (page: string) => void
   onSolopreneurClick: () => void
   onHighEarnerClick: () => void
@@ -22,40 +23,52 @@ interface AboutPageProps {
   onLearnClick: () => void
 }
 
-export default function AboutPage({
+export default function LearnPage({
   onLogoClick,
   onNavigateHome,
   onContactClick,
+  onAboutClick,
   onFooterLinkClick,
   onSolopreneurClick,
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
-}: AboutPageProps) {
+}: LearnPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    // Apple-level smooth animations
+    // Reset all animations when component mounts
+    const resetAnimations = () => {
+      const elements = document.querySelectorAll(".scroll-animate")
+      elements.forEach((el) => {
+        el.classList.remove("animate-fade-in")
+        el.classList.add("opacity-0", "translate-y-16", "scale-95")
+      })
+    }
+
+    resetAnimations()
+
+    // Much more dramatic scroll animations
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in")
-            entry.target.classList.remove("opacity-0", "translate-y-4")
+            entry.target.classList.remove("opacity-0", "translate-y-16", "scale-95")
           }
         })
       },
       {
-        threshold: 0.15,
-        rootMargin: "0px 0px -80px 0px",
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
       },
     )
 
-    // Handle scroll for header background
+    // Handle scroll for header background only
     const handleScroll = () => {
       const scrollY = window.scrollY
-      setIsScrolled(scrollY > 10) // Changed from 50 to 10 for quicker fade
+      setIsScrolled(scrollY > 10)
     }
 
     // Observe all elements with scroll-animate class
@@ -66,6 +79,7 @@ export default function AboutPage({
       }
     })
 
+    // Add scroll listener
     window.addEventListener("scroll", handleScroll)
     handleScroll() // Initial call
 
@@ -77,22 +91,68 @@ export default function AboutPage({
     }
   }, [])
 
+  const articles = [
+    {
+      title: "Getting Started with Index Fund Investing",
+      excerpt: "Learn the basics of index fund investing and why it's a great starting point for new investors.",
+      readTime: "5 min read",
+      category: "Beginner",
+    },
+    {
+      title: "Understanding Risk and Diversification",
+      excerpt: "Discover how to balance risk and reward in your investment portfolio through proper diversification.",
+      readTime: "7 min read",
+      category: "Intermediate",
+    },
+    {
+      title: "Tax-Advantaged Retirement Accounts",
+      excerpt: "Maximize your retirement savings with 401(k)s, IRAs, and other tax-advantaged investment accounts.",
+      readTime: "6 min read",
+      category: "Planning",
+    },
+    {
+      title: "Dollar-Cost Averaging Strategy",
+      excerpt: "Learn how consistent investing over time can help reduce market volatility impact on your portfolio.",
+      readTime: "4 min read",
+      category: "Strategy",
+    },
+    {
+      title: "Rebalancing Your Investment Portfolio",
+      excerpt: "Understand when and how to rebalance your portfolio to maintain your target asset allocation.",
+      readTime: "8 min read",
+      category: "Advanced",
+    },
+    {
+      title: "ESG and Sustainable Investing",
+      excerpt:
+        "Explore environmental, social, and governance investing and how to align your values with your investments.",
+      readTime: "6 min read",
+      category: "Trends",
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       <style jsx>{`
         .scroll-animate {
           opacity: 0;
-          transform: translateY(16px);
-          transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(60px) scale(0.95);
+          transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .animate-fade-in {
           opacity: 1 !important;
-          transform: translateY(0) !important;
+          transform: translateY(0) scale(1) !important;
         }
-        .button-hover, button {
+        .button-hover {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .button-hover:hover, button:hover {
+        .button-hover:hover {
+          transform: scale(1.05) !important;
+        }
+        button {
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        button:hover {
           transform: scale(1.05);
         }
         .logo-hover {
@@ -132,8 +192,12 @@ export default function AboutPage({
         }
       `}</style>
 
-      {/* Fixed Header - Always white for about page due to dark hero */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24 header-transition">
+      {/* Fixed Header */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 h-24 header-transition ${
+          isScrolled ? "bg-white shadow-lg" : "bg-gray-50"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 h-full relative flex items-center">
           {/* Logo - Positioned absolutely on the left */}
           <div className="absolute left-6 flex items-center">
@@ -199,13 +263,13 @@ export default function AboutPage({
               >
                 Pricing
               </button>
-              <span className="text-gray-900 font-medium px-4 py-2">About Us</span>
               <button
-                onClick={onLearnClick}
+                onClick={onAboutClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Learn
+                About Us
               </button>
+              <span className="text-gray-900 font-medium px-4 py-2">Learn</span>
               <button
                 onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
@@ -214,16 +278,6 @@ export default function AboutPage({
               </button>
             </div>
           </nav>
-
-          {/* Right Side - Login & Get Started Buttons - Positioned absolutely on the right */}
-          <div className="absolute right-6 hidden md:flex items-center space-x-4">
-            <button
-              onClick={() => window.open("https://aurefinancial.com", "_blank")}
-              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
-            >
-              Join Waitlist
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden absolute right-6">
@@ -236,71 +290,65 @@ export default function AboutPage({
         </div>
       </header>
 
-      {/* Mission Section - Now first with dark background */}
-      <section className="pt-32 pb-20 bg-gray-900 text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <p className="scroll-animate text-sm font-medium text-gray-400 mb-6 tracking-wide uppercase">Our Mission</p>
-
-            <h2 className="scroll-animate text-4xl md:text-4xl font-normal mb-8 leading-tight text-white">
-              At Aure, we believe wealth is a tool for freedom
-            </h2>
-
-            <h1 className="scroll-animate text-5xl md:text-4xl font-light mb-8 leading-tight tracking-tight">
-              <span className="text-[#d5b36e]">
-                Aure exists to help solopreneurs and high-income professionals grow lasting wealth and live life on
-                their own terms — all through a transparent flat-fee model with no AUM charges
-              </span>
-            </h1>
-          </div>
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+            Investment <span className="text-[#d5b36e]">Learning Center</span>
+          </h1>
+          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+            Expand your investment knowledge with our curated articles covering everything from basic concepts to
+            advanced strategies.
+          </p>
         </div>
       </section>
 
-      {/* Hero Section - Now second */}
-      <section className="py-20 bg-white">
+      {/* Articles Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Content */}
-            <div className="space-y-8">
-              <h2 className="scroll-animate text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
-                {/*Transparent Wealth for the Self Made */}
-                Smart wealth strategies for people building big futures
-              </h2>
-
-              <button
-                onClick={onContactClick}
-                className="scroll-animate button-hover bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-medium"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map((article, index) => (
+              <div
+                key={index}
+                className="scroll-animate bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
               >
-                Contact Us
-              </button>
-            </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="bg-[#d5b36e] bg-opacity-20 text-gray-900 px-3 py-1 rounded-full text-sm font-medium">
+                    {article.category}
+                  </span>
+                  <span className="text-gray-500 text-sm">{article.readTime}</span>
+                </div>
 
-            {/* Right Side - Illustration */}
-            <div className="scroll-animate">
-              <Image
-                src="/images/financial-illustration.png"
-                alt="Financial tools illustration showing banking, analytics, and growth"
-                width={900}
-                height={600}
-                className="w-full h-auto"
-                quality={100}
-                style={{ imageRendering: "crisp-edges" }}
-              />
-            </div>
+                <h3 className="text-xl font-medium text-gray-900 mb-3 leading-tight">{article.title}</h3>
+
+                <p className="text-gray-600 leading-relaxed mb-4">{article.excerpt}</p>
+
+                <button className="text-[#d5b36e] hover:text-[#c4a05d] font-medium text-sm flex items-center gap-2 transition-colors">
+                  Read Article
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-6 leading-tight">
-            Helping you grow, protect, and enjoy your wealth - your way
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="scroll-animate text-4xl font-normal mb-6 leading-tight">
+            Ready to put your knowledge into action?
           </h2>
+
+          <p className="scroll-animate text-white text-opacity-75 text-lg mb-10 max-w-2xl mx-auto">
+            Get personalized investment advice and professional portfolio management tailored to your financial goals.
+          </p>
 
           <button
             onClick={onContactClick}
-            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded-lg font-medium"
+            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-10 py-4 rounded-lg font-medium text-lg shadow-lg hover:shadow-xl"
           >
             Contact Us
           </button>
