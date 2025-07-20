@@ -367,7 +367,7 @@ export default function LandingPage({
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
-            Wealth management with transparent flat-fee pricing.
+            Transparent wealth management for the self-made
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
