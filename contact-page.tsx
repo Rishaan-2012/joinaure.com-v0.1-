@@ -290,7 +290,7 @@ export default function ContactPage({
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@aurefinancial.com</p>
+                    <p className="text-gray-600">Info@aurefinancial.com</p>
                   </div>
                 </div>
 
@@ -329,6 +329,11 @@ export default function ContactPage({
                 ) : (
                   <>
                     <h2 className="text-2xl font-medium text-gray-900 mb-6">Send us a message</h2>
+                    
+
+
+
+
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-2 gap-4">
