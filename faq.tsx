@@ -271,13 +271,14 @@ export default function FaqPage({
               >
                 About Us
               </button>
-              <span className="text-gray-900 font-medium px-4 py-2">Learn</span>
-              <button
-                onClick={onContactClick}
+                <button
+                onClick={onLearnClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                Learn
               </button>
+              
+              <span className="text-gray-900 font-medium px-4 py-2">FAQ</span>
             </div>
           </nav>
 
