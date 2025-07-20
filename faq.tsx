@@ -331,7 +331,7 @@ export default function FaqPage({
               <p className="text-gray-600">
                 We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
                 financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
-                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.Most of our clients also see savings from tax savings, growth and income generation strategies. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
                 institutional-grade tools and the best available rates — while keeping you in full control of your money
                 at all times.
               </p>
