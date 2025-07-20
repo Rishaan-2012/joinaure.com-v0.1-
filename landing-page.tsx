@@ -428,7 +428,7 @@ export default function LandingPage({
           </p>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-12 max-w-2xl mx-auto">
-            No hidden fees. No conflicts of interest.
+            No AUM percentage fees. No hidden fees. No commissions.No conflicts of interest.
           </p>
 
           <button
