@@ -269,17 +269,14 @@ export default function ContactPage({
               >
                 FAQ
               </button>
-              <span className="text-gray-900 font-medium px-4 py-2">Contact</span>
+              
             </div>
           </nav>
 
           {/* Right Side - Join Waitlist Button - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
-            <button
-              onClick={() => window.open("https://aurefinancial.com/waitlist", "_blank")}
-              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
-            >
-              Join Waitlist
+            <button className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md">
+                  Contact Us
             </button>
           </div>
 
@@ -364,120 +361,7 @@ export default function ContactPage({
             </div>
 
             {/* Right Side - Form */}
-            <div className={`fade-in ${isLoaded ? "loaded" : ""}`} style={{ transitionDelay: "0.3s" }}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                {success ? (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-medium text-gray-900 mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="text-2xl font-medium text-gray-900 mb-6">Send us a message</h2>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                            First Name *
-                          </label>
-                          <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                            Last Name *
-                          </label>
-                          <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                          Subject *
-                        </label>
-                        <select
-                          id="subject"
-                          name="subject"
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200"
-                        >
-                          <option value="">Select a topic</option>
-                          <option value="consultation">Schedule a Consultation</option>
-                          <option value="solopreneur">Solopreneur Services</option>
-                          <option value="high-earner">High Earner Services</option>
-                          <option value="pricing">Pricing Questions</option>
-                          <option value="general">General Inquiry</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                          Message *
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          rows={4}
-                          required
-                          placeholder="Tell us about your financial goals and how we can help..."
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d5b36e] focus:border-transparent transition-all duration-200 resize-none"
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-white px-6 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </button>
-                    </form>
-                  </>
-                )}
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
