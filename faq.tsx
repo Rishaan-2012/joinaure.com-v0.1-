@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import Footer from "./components/footer"
 
-interface LearnPageProps {
+interface FaqPageProps {
   onLogoClick: () => void
   onNavigateHome: () => void
   onContactClick: () => void
@@ -24,7 +24,7 @@ interface LearnPageProps {
   onFaqClick: () => void
 }
 
-export default function LearnPage({
+export default function FaqPage({
   onLogoClick,
   onNavigateHome,
   onContactClick,
@@ -35,8 +35,7 @@ export default function LearnPage({
   onPricingClick,
   onLearnClick,
   onFaqClick,
-
-}: LearnPageProps) {
+}: FaqPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -274,10 +273,10 @@ export default function LearnPage({
               </button>
               <span className="text-gray-900 font-medium px-4 py-2">Learn</span>
               <button
-                onClick={onFaqClick}
+                onClick={onContactClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                FAQ
+                Contact
               </button>
             </div>
           </nav>
@@ -314,34 +313,59 @@ export default function LearnPage({
         </div>
       </section>
 
-      {/* Articles Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <div
-                key={index}
-                className="scroll-animate bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="bg-[#d5b36e] bg-opacity-20 text-gray-900 px-3 py-1 rounded-full text-sm font-medium">
-                    {article.category}
-                  </span>
-                  <span className="text-gray-500 text-sm">{article.readTime}</span>
-                </div>
+     {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="scroll-animate text-4xl font-normal text-gray-900 mb-12 text-center leading-tight">
+            Frequently Asked Questions
+          </h2>
 
-                <h3 className="text-xl font-medium text-gray-900 mb-3 leading-tight">{article.title}</h3>
+          <div className="space-y-8">
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
+              <p className="text-gray-600">
+                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving.
+                Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each
+                person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100%
+                of the time.
+              </p>
+            </div>
 
-                <p className="text-gray-600 leading-relaxed mb-4">{article.excerpt}</p>
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
+              <p className="text-gray-600">
+                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and
+                high-income professionals who value personalized and transparent wealth management, regardless
+                of their current asset level.Our clients maintain full control over their assets at all times, without any restrictions.
+              </p>
+            </div>
 
-                <button className="text-[#d5b36e] hover:text-[#c4a05d] font-medium text-sm flex items-center gap-2 transition-colors">
-                  Read Article
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            ))}
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">Can I cancel my plan at any time?</h3>
+              <p className="text-gray-600">
+                Yes, you can cancel your plan at any time with 30 days' notice. There are no long-term contracts or
+                cancellation fees. We believe in earning your business every month through exceptional service.
+              </p>
+            </div>
+
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
+              <p className="text-gray-600">
+                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
+                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                institutional-grade tools and the best available rates — while keeping you in full control of your money
+                at all times.
+              </p>
+            </div>
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
+              <p className="text-gray-600">
+                While you may feel confident handling financial tasks independently, Aure provides tailored advice,
+                expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances,
+                ensuring your long-term financial wellness and peace of mind.
+              </p>
+            </div>
           </div>
         </div>
       </section>

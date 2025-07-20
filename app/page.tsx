@@ -7,12 +7,12 @@ import HighEarnerPage from "../high-earner-page"
 import PricingPage from "../pricing-page"
 import ContactPage from "../contact-page"
 import AboutPage from "../about-page"
-import ThankYouPage from "../thank-you-page"
+import FaqPage from "../faq"
 import LearnPage from "../learn-page"
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<
-    "landing" | "solopreneur" | "high-earner" | "pricing" | "contact" | "about" | "thank-you" | "learn" | string
+    "landing" | "solopreneur" | "high-earner" | "pricing" | "contact" | "about" | "faq" | "learn" | string
   >("landing")
 
   const handleLogoClick = () => {
@@ -47,8 +47,8 @@ export default function Home() {
     setCurrentPage(page)
   }
 
-  const handleThankYouClick = () => {
-    setCurrentPage("thank-you")
+  const handleFaqClick = () => {
+    setCurrentPage("faq")
   }
 
   const handleLearnClick = () => {
@@ -67,6 +67,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -83,6 +84,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -99,6 +101,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -115,6 +118,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -131,6 +135,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -147,13 +152,14 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
 
-  if (currentPage === "thank-you") {
+  if (currentPage === "faq") {
     return (
-      <ThankYouPage
+      <FaqPage
         onLogoClick={handleLogoClick}
         onNavigateHome={handleNavigateHome}
         onContactClick={handleContactClick}
@@ -163,6 +169,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
@@ -179,6 +186,7 @@ export default function Home() {
         onHighEarnerClick={handleHighEarnerClick}
         onPricingClick={handlePricingClick}
         onLearnClick={handleLearnClick}
+        onFaqClick={handleFaqClick}
       />
     )
   }
