@@ -23,6 +23,7 @@ interface ContactPageProps {
   onHighEarnerClick: () => void
   onPricingClick: () => void
   onLearnClick: () => void
+  onFaqClick: () => void
 }
 
 export default function ContactPage({
@@ -35,6 +36,7 @@ export default function ContactPage({
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
+  onFaqClick,
 }: ContactPageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -236,7 +238,12 @@ export default function ContactPage({
               >
                 Learn
               </button>
-              <span className="text-gray-900 font-medium px-4 py-2">Contact</span>
+              <button
+                onClick={onFaqClick}
+                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
+              >
+                FAQ
+              </button>
             </div>
           </nav>
 
