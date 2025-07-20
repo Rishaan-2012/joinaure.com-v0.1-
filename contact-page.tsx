@@ -308,6 +308,43 @@ export default function ContactPage({
                   <div>
                     <h3 className="font-medium text-gray-900">Response Time</h3>
                     <p className="text-gray-600">Within 24 hours</p>
+                    <br/>
+                    
+
+
+
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2s0J9oqIm36aRbG0AI34a6Ovt_IJRS-Vqi8WuiBnbFlkJK_Fu970szFiciYXJhDdd7mn96tlPj?gv=true',
+      color: '#616161',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   </div>
                 </div>
               </div>
