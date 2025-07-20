@@ -51,11 +51,36 @@ export default function ContactPage({
     // Handle scroll for header background
     const handleScroll = () => {
       const scrollY = window.scrollY
-      setIsScrolled(scrollY > 10) // Changed from 50 to 10 for quicker fade
+      setIsScrolled(scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial call
+    handleScroll()
+
+    // Load Google Calendar script
+    const script = document.createElement("script")
+    script.src = "https://calendar.google.com/calendar/scheduling-button-script.js"
+    script.async = true
+    document.head.appendChild(script)
+
+    const link = document.createElement("link")
+    link.href = "https://calendar.google.com/calendar/scheduling-button-script.css"
+    link.rel = "stylesheet"
+    document.head.appendChild(link)
+
+    script.onload = () => {
+      if (window.calendar && window.calendar.schedulingButton) {
+        const calendarContainer = document.getElementById("calendar-button-container")
+        if (calendarContainer) {
+          window.calendar.schedulingButton.load({
+            url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2s0J9oqIm36aRbG0AI34a6Ovt_IJRS-Vqi8WuiBnbFlkJK_Fu970szFiciYXJhDdd7mn96tlPj?gv=true",
+            color: "#d5b36e",
+            label: "Book an appointment",
+            target: calendarContainer,
+          })
+        }
+      }
+    }
 
     return () => {
       clearTimeout(timer)
@@ -71,7 +96,7 @@ export default function ContactPage({
     const formData = new FormData(form)
 
     try {
-      const response = await fetch("https://formsp.io/f/xdkdndnd", {
+      const response = await fetch("https://formspree.io/f/xqabvrow", {
         method: "POST",
         body: formData,
         headers: {
@@ -244,11 +269,19 @@ export default function ContactPage({
               >
                 FAQ
               </button>
+              <span className="text-gray-900 font-medium px-4 py-2">Contact</span>
             </div>
           </nav>
 
-                
-          
+          {/* Right Side - Join Waitlist Button - Positioned absolutely on the right */}
+          <div className="absolute right-6 hidden md:flex items-center space-x-4">
+            <button
+              onClick={() => window.open("https://aurefinancial.com/waitlist", "_blank")}
+              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
+            >
+              Join Waitlist
+            </button>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden absolute right-6">
@@ -308,43 +341,23 @@ export default function ContactPage({
                   <div>
                     <h3 className="font-medium text-gray-900">Response Time</h3>
                     <p className="text-gray-600">Within 24 hours</p>
-                    <br/>
-                    
+                  </div>
+                </div>
 
-
-
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2s0J9oqIm36aRbG0AI34a6Ovt_IJRS-Vqi8WuiBnbFlkJK_Fu970szFiciYXJhDdd7mn96tlPj?gv=true',
-      color: '#616161',
-      label: 'Book an appointment',
-      target,
-    });
-  });
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#d5b36e] rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0l-2 13a2 2 0 002 2h6a2 2 0 002-2L16 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900">Schedule a Meeting</h3>
+                    <div id="calendar-button-container" className="mt-2"></div>
                   </div>
                 </div>
               </div>
@@ -366,11 +379,6 @@ export default function ContactPage({
                 ) : (
                   <>
                     <h2 className="text-2xl font-medium text-gray-900 mb-6">Send us a message</h2>
-                    
-
-
-
-
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-2 gap-4">
