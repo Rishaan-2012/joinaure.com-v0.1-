@@ -305,21 +305,16 @@ export default function FaqPage({
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-            Investment <span className="text-[#d5b36e]">Learning Center</span>
+            Frequently <span className="text-[#d5b36e]">Asked Questions</span>
           </h1>
-          <p className="scroll-animate text-gray-600 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-            Expand your investment knowledge with our curated articles covering everything from basic concepts to
-            advanced strategies.
-          </p>
+         
         </div>
       </section>
 
      {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="scroll-animate text-4xl font-normal text-gray-900 mb-12 text-center leading-tight">
-            Frequently Asked Questions
-          </h2>
+          
 
           <div className="space-y-8">
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
@@ -329,6 +324,16 @@ export default function FaqPage({
                 Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each
                 person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100%
                 of the time.
+              </p>
+            </div>
+              <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
+              <p className="text-gray-600">
+                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
+                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.Most of our clients also see savings from tax savings, growth and income generation strategies. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                institutional-grade tools and the best available rates — while keeping you in full control of your money
+                at all times.
               </p>
             </div>
 
@@ -349,16 +354,7 @@ export default function FaqPage({
               </p>
             </div>
 
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
-              <p className="text-gray-600">
-                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
-                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
-                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
-                institutional-grade tools and the best available rates — while keeping you in full control of your money
-                at all times.
-              </p>
-            </div>
+          
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
               <p className="text-gray-600">

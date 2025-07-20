@@ -23,6 +23,7 @@ interface SolopreneurPageProps {
   onHighEarnerClick: () => void
   onPricingClick: () => void
   onLearnClick: () => void
+  onFaqClick: () => void
 }
 
 export default function SolopreneurPage({
@@ -36,6 +37,7 @@ export default function SolopreneurPage({
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
+  onFaqClick,
 }: SolopreneurPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -240,10 +242,10 @@ export default function SolopreneurPage({
                 Learn
               </button>
               <button
-                onClick={onContactClick}
+                onClick={onFaqClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                FAQ
               </button>
             </div>
           </nav>

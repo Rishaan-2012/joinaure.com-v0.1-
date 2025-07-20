@@ -22,6 +22,7 @@ interface PricingPageProps {
   onHighEarnerClick: () => void
   onPricingClick: () => void
   onLearnClick: () => void
+  onFaqClick: () => void
 }
 
 export default function PricingPage({
@@ -34,6 +35,7 @@ export default function PricingPage({
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
+  onFaqClick,
 }: PricingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -232,10 +234,10 @@ export default function PricingPage({
                 Learn
               </button>
               <button
-                onClick={onContactClick}
+                onClick={onFaqClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                FAQ
               </button>
             </div>
           </nav>
@@ -323,7 +325,11 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">Cashflow planning and Bookkeeping support</span>
+                  <span className="text-gray-700">Cashflow planning</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-700">Bookkeeping support</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
@@ -402,6 +408,10 @@ export default function PricingPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-white text-opacity-90">Direct Indexing</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-[#d5b36e] mt-1 w-5 h-5 flex-shrink-0" />
                   <span className="text-white text-opacity-90">Proactive Tax planning</span>
                 </div>
                 <div className="flex items-start gap-3">
@@ -436,62 +446,7 @@ export default function PricingPage({
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="scroll-animate text-4xl font-normal text-gray-900 mb-12 text-center leading-tight">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="space-y-8">
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
-              <p className="text-gray-600">
-                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving.
-                Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each
-                person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100%
-                of the time.
-              </p>
-            </div>
-
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
-              <p className="text-gray-600">
-                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and
-                high-income professionals who value personalized and transparent wealth management, regardless
-                of their current asset level.Our clients maintain full control over their assets at all times, without any restrictions.
-              </p>
-            </div>
-
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">Can I cancel my plan at any time?</h3>
-              <p className="text-gray-600">
-                Yes, you can cancel your plan at any time with 30 days' notice. There are no long-term contracts or
-                cancellation fees. We believe in earning your business every month through exceptional service.
-              </p>
-            </div>
-
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
-              <p className="text-gray-600">
-                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
-                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
-                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows.We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
-                institutional-grade tools and the best available rates — while keeping you in full control of your money
-                at all times.
-              </p>
-            </div>
-            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
-              <p className="text-gray-600">
-                While you may feel confident handling financial tasks independently, Aure provides tailored advice,
-                expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances,
-                ensuring your long-term financial wellness and peace of mind.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">

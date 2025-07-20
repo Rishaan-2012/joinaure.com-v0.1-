@@ -23,6 +23,7 @@ interface HighEarnerPageProps {
   onHighEarnerClick: () => void
   onPricingClick: () => void
   onLearnClick: () => void
+  onFaqClick: () => void
 }
 
 export default function HighEarnerPage({
@@ -36,6 +37,7 @@ export default function HighEarnerPage({
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
+  onFaqClick,
 }: HighEarnerPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -240,10 +242,10 @@ export default function HighEarnerPage({
                 Learn
               </button>
               <button
-                onClick={onContactClick}
+                onClick={onFaqClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                FAQ
               </button>
             </div>
           </nav>
@@ -287,7 +289,7 @@ export default function HighEarnerPage({
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Advanced financial tools for high income professionals
+            Advanced Tax-smart investing for high income professionals
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">

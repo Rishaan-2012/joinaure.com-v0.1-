@@ -28,6 +28,7 @@ interface LandingPageProps {
   onHighEarnerClick: () => void
   onPricingClick: () => void
   onLearnClick: () => void
+  onFaqClick: () => void
 }
 
 export default function LandingPage({
@@ -39,6 +40,7 @@ export default function LandingPage({
   onHighEarnerClick,
   onPricingClick,
   onLearnClick,
+  onFaqClick,
 }: LandingPageProps) {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -301,10 +303,10 @@ export default function LandingPage({
                 Learn
               </button>
               <button
-                onClick={onContactClick}
+                onClick={onFaqClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
-                Contact
+                FAQ
               </button>
             </div>
           </nav>
