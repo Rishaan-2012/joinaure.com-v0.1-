@@ -291,7 +291,7 @@ export default function SolopreneurPage({
 
 
      {/* Hero Section */}
-     <section className="pt-40 pb-20 bg-gray-50">
+     <section className="pt-40 pb-20 bg-gray-180">
        <div className="max-w-7xl mx-auto px-6">
          {/* Back Button */}
 
@@ -315,7 +315,7 @@ export default function SolopreneurPage({
      <section className="py-20 bg-white">
        <div className="max-w-7xl mx-auto px-6">
         
-         <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight">
+         <h2 className="scroll-animate text-4xl md:text-4xl font-normal text-gray-900 mb-16 leading-tight">
            Aure pays for itself through tax-deductible fees and savings
          </h2>
 
