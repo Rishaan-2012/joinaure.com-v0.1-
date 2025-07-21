@@ -308,7 +308,7 @@ export default function FaqPage({
             Frequently <span className="text-[#d5b36e]">Asked Questions</span>
           </h1>
          
-        </div>
+        </div> 
       </section>
 
      {/* FAQ Section */}
@@ -316,7 +316,7 @@ export default function FaqPage({
         <div className="max-w-4xl mx-auto px-6">
           
 
-          <div className="space-y-8">
+         <div className="space-y-8">
             <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
               <p className="text-gray-600">
@@ -334,6 +334,8 @@ export default function FaqPage({
                 your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
                 institutional-grade tools and the best available rates — while keeping you in full control of your money
                 at all times.
+                <br/>
+                Based in San Francisco, Aure has a deep understanding of California's tax landscape and the unique financial challenges faced by professionals in the state — giving our clients an edge that national firms often can't match.
               </p>
             </div>
 
@@ -363,7 +365,7 @@ export default function FaqPage({
                 ensuring your long-term financial wellness and peace of mind.
               </p>
             </div>
-          </div>
+          </div> 
         </div>
       </section>
 
@@ -371,11 +373,11 @@ export default function FaqPage({
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="scroll-animate text-4xl font-normal mb-6 leading-tight">
-            Ready to put your knowledge into action?
+            As a San Francisco-based firm, Aure understands California taxes and financial complexity better than most.
           </h2>
 
           <p className="scroll-animate text-white text-opacity-75 text-lg mb-10 max-w-2xl mx-auto">
-            Get personalized investment advice and professional portfolio management tailored to your financial goals.
+            Get personalized investment advice and more relevant advice than firms with a national one-size-fits-all approach.
           </p>
 
           <button
