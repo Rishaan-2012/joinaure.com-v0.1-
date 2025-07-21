@@ -1,9 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ChevronRight } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import Footer from "./components/footer"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import Footer from "./components/footer"
 
 interface FaqPageProps {
   onLogoClick: () => void
@@ -53,7 +51,7 @@ export default function FaqPage({
 
     resetAnimations()
 
-    // Scroll animations
+    // Much more dramatic scroll animations
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -69,7 +67,7 @@ export default function FaqPage({
       },
     )
 
-    // Handle scroll for header background
+    // Handle scroll for header background only
     const handleScroll = () => {
       const scrollY = window.scrollY
       setIsScrolled(scrollY > 10)
@@ -95,56 +93,43 @@ export default function FaqPage({
     }
   }, [])
 
-  const faqData = [
+  const articles = [
     {
-      question: "What is Aure and how does it work?",
-      answer:
-        "Aure is a comprehensive financial platform designed specifically for solopreneurs and high earners. We combine wealth management, business compliance, tax optimization, and financial planning into one integrated membership. Our platform helps you manage your business finances, investments, retirement planning, and tax strategies all in one place.",
+      title: "Getting Started with Index Fund Investing",
+      excerpt: "Learn the basics of index fund investing and why it's a great starting point for new investors.",
+      readTime: "5 min read",
+      category: "Beginner",
     },
     {
-      question: "Who is Aure designed for?",
-      answer:
-        "Aure is specifically built for solopreneurs (solo business owners, freelancers, consultants) and high-earning professionals who want to optimize their financial strategy. Whether you're running a one-person business or earning a high income as a professional, Aure provides the tools and expertise to help you maximize your wealth and minimize your taxes.",
+      title: "Understanding Risk and Diversification",
+      excerpt: "Discover how to balance risk and reward in your investment portfolio through proper diversification.",
+      readTime: "7 min read",
+      category: "Intermediate",
     },
     {
-      question: "How much does Aure membership cost?",
-      answer:
-        "Our membership fees are structured to be 100% tax-deductible as a business expense. The exact cost depends on your specific needs and the services you require. Contact us for a personalized quote based on your financial situation and goals. Most clients find that the tax savings alone more than pay for the membership.",
+      title: "Tax-Advantaged Retirement Accounts",
+      excerpt: "Maximize your retirement savings with 401(k)s, IRAs, and other tax-advantaged investment accounts.",
+      readTime: "6 min read",
+      category: "Planning",
     },
     {
-      question: "What services are included in my membership?",
-      answer:
-        "Your Aure membership includes: LLC setup and compliance support, business bank account assistance, financial planning and cash flow management, business investment accounts with 4%+ yields, Solo 401(k) setup and management, year-round tax strategy support, card payment processing solutions, and dedicated relationship management.",
+      title: "Dollar-Cost Averaging Strategy",
+      excerpt: "Learn how consistent investing over time can help reduce market volatility impact on your portfolio.",
+      readTime: "4 min read",
+      category: "Strategy",
     },
     {
-      question: "How do I get started with Aure?",
-      answer:
-        "Getting started is simple. Contact us to schedule a consultation where we'll assess your current financial situation and business needs. We'll then create a customized plan and help you set up the necessary accounts and structures. Most clients can get started within a few days of their initial consultation.",
+      title: "Rebalancing Your Investment Portfolio",
+      excerpt: "Understand when and how to rebalance your portfolio to maintain your target asset allocation.",
+      readTime: "8 min read",
+      category: "Advanced",
     },
     {
-      question: "Is my money and data secure with Aure?",
-      answer:
-        "Absolutely. We use bank-level security measures including multi-factor authentication, encryption, and granular permissions. Your funds are held at FDIC-insured institutions, and we follow strict compliance protocols. We never have direct access to your funds - you maintain full control of your accounts.",
-    },
-    {
-      question: "Can Aure help me save on taxes?",
-      answer:
-        "Yes, tax optimization is a core part of our service. We help you implement smart tax-saving strategies including proper business structure setup, Solo 401(k) contributions (which can save thousands annually), business expense optimization, and year-round tax planning. Many clients save more in taxes than they pay in membership fees.",
-    },
-    {
-      question: "What makes Aure different from other financial services?",
-      answer:
-        "Unlike generic financial services, Aure is specifically designed for solopreneurs and high earners. We understand your unique challenges and provide integrated solutions rather than forcing you to work with multiple vendors. Our membership model means we're aligned with your success, not just selling you products.",
-    },
-    {
-      question: "Do I need to have a business already to use Aure?",
-      answer:
-        "No, we can help you set up your business from scratch. Whether you're just starting out as a solopreneur or you're an established business owner, we can assist with LLC registration, EIN applications, business bank accounts, and all the compliance requirements to get you started properly.",
-    },
-    {
-      question: "How quickly can I see results with Aure?",
-      answer:
-        "Many clients see immediate benefits through proper business structure setup and tax optimization strategies. Investment returns and long-term wealth building take time, but our tax-saving strategies often provide immediate value. Most clients recoup their membership investment within the first year through tax savings alone.",
+      title: "ESG and Sustainable Investing",
+      excerpt:
+        "Explore environmental, social, and governance investing and how to align your values with your investments.",
+      readTime: "6 min read",
+      category: "Trends",
     },
   ]
 
@@ -181,7 +166,6 @@ export default function FaqPage({
         .header-transition {
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         /* Hide all NavigationMenuTrigger arrows completely */
         [data-radix-navigation-menu-trigger] svg,
         [data-radix-navigation-menu-trigger]::after,
@@ -287,29 +271,23 @@ export default function FaqPage({
               >
                 About Us
               </button>
-              <button
+                <button
                 onClick={onLearnClick}
                 className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200"
               >
                 Learn
               </button>
-              <button
-                onClick={onFaqClick}
-                className="text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 bg-gray-100"
-              >
-                FAQ
-              </button>
+              
+              <span className="text-gray-900 font-medium px-4 py-2">FAQ</span>
             </div>
           </nav>
 
-          {/* Right Side - Contact Button - Positioned absolutely on the right */}
+        {/* Right Side  Contact & Join Waitlist Buttons - Positioned absolutely on the right */}
           <div className="absolute right-6 hidden md:flex items-center space-x-4">
-            <button
-              onClick={onContactClick}
-              className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md"
-            >
-              Contact Us
+            <button onClick={onContactClick} className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 hover:scale-105 hover:shadow-md">
+                  Contact Us
             </button>
+        
           </div>
 
           {/* Mobile Menu Button */}
@@ -324,51 +302,89 @@ export default function FaqPage({
       </header>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="pt-32 pb-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
-            Frequently Asked <span className="text-[#d5b36e]">Questions</span>
+            Frequently <span className="text-[#d5b36e]">Asked Questions</span>
           </h1>
-          <p className="scroll-animate text-gray-600 text-lg leading-relaxed">
-            Get answers to common questions about Aure's services, membership, and how we can help optimize your
-            financial strategy.
-          </p>
-        </div>
+         
+        </div> 
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
+     {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqData.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="scroll-animate border border-gray-200 rounded-lg px-6 py-2"
-              >
-                <AccordionTrigger className="text-left text-lg font-medium text-gray-900 hover:text-[#d5b36e] transition-colors">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 leading-relaxed pt-2">{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          
+
+         <div className="space-y-8">
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What is a fiduciary?</h3>
+              <p className="text-gray-600">
+                A fiduciary holds a legal and ethical relationship of trust with the person whom they are serving.
+                Therefore, a fiduciary is legally obligated to only make recommendations in the best interest of each
+                person they are giving advice to. Aure is a registered investment advisor and we act as fiduciaries 100%
+                of the time.
+              </p>
+            </div>
+              <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">What sets you apart?</h3>
+              <p className="text-gray-600">
+                We specialize in serving solopreneurs and high-income professionals, and we deeply understand the
+                financial complexities they face.Unlike most advisors who earn commissions or charge a percentage of
+                your assets, we use a simple, flat-fee model — no hidden costs, no lockups, and full transparency. By leveraging AI and advanced technology, we offer a highly personalized service without percentage based fees — saving you more as your wealth grows. We have partnered with some of the most trusted financial platforms in the U.S. to give you access to
+                institutional-grade tools and the best available rates — while keeping you in full control of your money
+                at all times.
+                <br/>
+                Based in San Francisco, Aure has a deep understanding of California's tax landscape and the unique financial challenges faced by professionals in the state — giving our clients an edge that national firms often can't match.
+              </p>
+            </div>
+
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">Is there a minimum investment requirement?</h3>
+              <p className="text-gray-600">
+                We don't have strict asset minimums. Our services are specifically designed for solopreneurs and
+                high-income professionals who value personalized and transparent wealth management, regardless
+                of their current asset level.Our clients maintain full control over their assets at all times, without any restrictions.
+              </p>
+            </div>
+
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">Can I cancel my plan at any time?</h3>
+              <p className="text-gray-600">
+                Yes, you can cancel your plan at any time with 30 days' notice. There are no long-term contracts or
+                cancellation fees. We believe in earning your business every month through exceptional service.
+              </p>
+            </div>
+
+          
+            <div className="scroll-animate bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-medium text-gray-900 mb-3">I can do this myself, why do I need Aure?</h3>
+              <p className="text-gray-600">
+                While you may feel confident handling financial tasks independently, Aure provides tailored advice,
+                expertise, objectivity, saves you time, manages risks, and adapts your plan to changing circumstances,
+                ensuring your long-term financial wellness and peace of mind.
+              </p>
+            </div>
+          </div> 
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="scroll-animate text-4xl md:text-5xl font-normal mb-8 leading-tight">Still have questions?</h2>
-          <p className="scroll-animate text-gray-300 text-lg mb-8 leading-relaxed">
-            Our team is here to help you understand how Aure can optimize your financial strategy.
+          <h2 className="scroll-animate text-4xl font-normal mb-6 leading-tight">
+            As a San Francisco-based firm, Aure understands California taxes and financial complexity better than most.
+          </h2>
+
+          <p className="scroll-animate text-white text-opacity-75 text-lg mb-10 max-w-2xl mx-auto">
+            Get personalized investment advice and more relevant advice than firms with a national one-size-fits-all approach.
           </p>
+
           <button
             onClick={onContactClick}
-            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-8 py-4 rounded flex items-center gap-2 font-medium mx-auto"
+            className="scroll-animate button-hover bg-[#d5b36e] hover:bg-[#c4a05d] text-gray-900 px-10 py-4 rounded-lg font-medium text-lg shadow-lg hover:shadow-xl"
           >
             Contact Us
-            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </section>
