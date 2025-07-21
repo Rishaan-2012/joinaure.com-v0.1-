@@ -293,8 +293,8 @@ export default function SolopreneurPage({
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           
-          <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Aure pays for itself through 100% tax-deductible fees and savings
+          <h2 className="scroll-animate text-3xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
+            Aure pays for itself through tax-deductible fees and savings
           </h2>
 
           <div className="grid md:grid-cols-3 gap-12 mb-20">
