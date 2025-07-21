@@ -403,7 +403,7 @@ export default function SolopreneurPage({
 
 
      {/* Benefits Section */}
-     <section className="py-20 bg-gray-50">
+     <section className="py-20 bg-gray-50" style={{ backgroundColor: "#e9e9e9" }}>
        <div className="max-w-7xl mx-auto px-6">
          <h2 className="scroll-animate text-4xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
            Why solopreneurs love Aure
