@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ChevronRight, Building2, TrendingUp, PiggyBank, Shield, FileText, CreditCard } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Footer from "./components/footer"
 import {
@@ -274,8 +274,6 @@ export default function SolopreneurPage({
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Back Button */}
-
           <div className="text-center">
             <h1 className="scroll-animate text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
               Built for <span className="text-[#d5b36e]">Solopreneurs</span>
@@ -292,16 +290,23 @@ export default function SolopreneurPage({
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          
-          <h2 className="scroll-animate text-3xl md:text-5xl font-normal text-gray-900 mb-16 text-center leading-tight">
-            Aure pays for itself through tax-deductible fees and savings
+          <h2 className="scroll-animate text-5xl md:text-5xl font-normal text-gray-900 mb-16 leading-tight tracking-tight">
+            Fees are 100% tax deductible, plus with the tax savings, Aure membership quite literally pays for itself
           </h2>
 
           <div className="grid md:grid-cols-3 gap-12 mb-20">
             {/* LLC & Compliance */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <Building2 className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Setup & Compliance */}
+                    <div className="absolute top-8 left-8 w-32 h-24 bg-[#d5b36e] rounded-lg opacity-80"></div>
+                    <div className="absolute top-16 left-16 w-24 h-16 bg-gray-300 rounded-lg"></div>
+                    <div className="absolute top-20 left-20 w-16 h-8 bg-gray-800 rounded"></div>
+                    <div className="absolute bottom-16 right-8 w-8 h-8 bg-white rounded-full border-2 border-[#d5b36e]"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Setup & Compliance</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -310,10 +315,18 @@ export default function SolopreneurPage({
               </p>
             </div>
 
-            {/* Books & Support */}
+            {/* Financial Planning */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Financial Planning */}
+                    <div className="absolute top-12 left-12 w-24 h-24 bg-gray-300 rounded-full"></div>
+                    <div className="absolute top-8 right-8 w-16 h-32 bg-[#d5b36e] rounded-lg transform rotate-45"></div>
+                    <div className="absolute bottom-8 left-8 w-20 h-12 bg-gray-800 rounded-lg"></div>
+                    <div className="absolute bottom-12 right-12 w-12 h-12 bg-[#c4a05d] rounded"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Financial Planning</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -322,10 +335,18 @@ export default function SolopreneurPage({
               </p>
             </div>
 
-            {/* Invest & Retire */}
+            {/* Business Investment Account */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <PiggyBank className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Investment Account */}
+                    <div className="absolute top-8 right-8 w-28 h-20 bg-gray-300 rounded-2xl"></div>
+                    <div className="absolute top-12 right-12 w-20 h-12 bg-[#d5b36e] rounded-xl"></div>
+                    <div className="absolute bottom-8 left-8 w-24 h-16 bg-[#c4a05d] rounded-lg"></div>
+                    <div className="absolute bottom-12 left-12 w-16 h-8 bg-gray-800 rounded"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Business Investment Account</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -336,10 +357,18 @@ export default function SolopreneurPage({
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
-            {/* Invest & Retire */}
+            {/* Solo 401K */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Solo 401K */}
+                    <div className="absolute top-8 left-8 w-32 h-32 bg-gray-300 rounded-full"></div>
+                    <div className="absolute top-16 left-16 w-16 h-16 bg-[#d5b36e] rounded-full"></div>
+                    <div className="absolute bottom-8 right-8 w-20 h-12 bg-gray-800 rounded-lg"></div>
+                    <div className="absolute bottom-12 right-12 w-12 h-4 bg-[#c4a05d] rounded"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Solo 401K</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -348,10 +377,18 @@ export default function SolopreneurPage({
               </p>
             </div>
 
-            {/* Payments & Tax */}
+            {/* Taxes */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <FileText className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Taxes */}
+                    <div className="absolute top-8 left-8 w-28 h-32 bg-[#d5b36e] rounded-lg"></div>
+                    <div className="absolute top-12 left-12 w-20 h-24 bg-gray-300 rounded-lg"></div>
+                    <div className="absolute top-16 left-16 w-12 h-16 bg-gray-800 rounded"></div>
+                    <div className="absolute bottom-8 right-8 w-16 h-8 bg-[#c4a05d] rounded-lg"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4"> Taxes </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -359,10 +396,19 @@ export default function SolopreneurPage({
                 tax filing through our trusted partner
               </p>
             </div>
-            {/* Cards & Cashback */}
+
+            {/* Card Payment Processing */}
             <div className="scroll-animate">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#d5b36e] to-[#c4a05d] rounded-2xl flex items-center justify-center mb-6">
-                <CreditCard className="w-8 h-8 text-white" />
+              <div className="relative w-full h-64 mb-8 bg-gray-50 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-48 h-48">
+                    {/* Geometric illustration for Card Payment Processing */}
+                    <div className="absolute top-8 right-8 w-24 h-28 bg-gray-300 rounded-2xl"></div>
+                    <div className="absolute top-12 right-12 w-16 h-20 bg-[#d5b36e] rounded-xl"></div>
+                    <div className="absolute bottom-8 left-8 w-20 h-16 bg-[#c4a05d] rounded-lg"></div>
+                    <div className="absolute bottom-16 left-16 w-8 h-8 bg-gray-800 rounded-full"></div>
+                  </div>
+                </div>
               </div>
               <h3 className="text-2xl font-normal text-gray-900 mb-4">Card Payment Processing </h3>
               <p className="text-gray-600 leading-relaxed">
